@@ -16,7 +16,7 @@ const Register = ({ handleRegisterToLogin }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+
     reset,
     watch,
   } = useForm();
@@ -28,13 +28,13 @@ const Register = ({ handleRegisterToLogin }) => {
       reset();
       handleRegisterToLogin();
     } catch (error) {
-      if (error.response && error.response.status === 409) {
-        const { field } = error.response.data;
-        if (field === "email") {
-          setError("El email ya está en uso");
-        } else if (field === "nombre") {
-          setError("El nombre ya está en uso");
-        }
+      if (error && error.message === "¡Este email ya está registrado!") {
+        setError("El email ya está en uso");
+      } else if (
+        error &&
+        error.message === "Ya existe un usuario con este nombre"
+      ) {
+        setError("El nombre ya está en uso");
       } else {
         console.error("Error:", error);
       }
@@ -70,7 +70,6 @@ const Register = ({ handleRegisterToLogin }) => {
               required: true,
             })}
           />
-          {errors.nombre && <p>Ingrese un nombre válido</p>}
         </div>
         <div className="form-group">
           <label className="labelRegister" htmlFor="email">
@@ -88,7 +87,7 @@ const Register = ({ handleRegisterToLogin }) => {
               },
             })}
           />
-          {errors.email && <p>{errors.email.message}</p>}
+          {error && <p className="errores-register">{error}</p>}
         </div>
         <div className="form-group">
           <label className="labelRegister" htmlFor="password">
@@ -123,11 +122,11 @@ const Register = ({ handleRegisterToLogin }) => {
               maxLength: MAX_LENGTH_PASSWORD,
             })}
           />
-          {!passwordsMatch && (
-            <p className="error-message">Las contraseñas no coinciden</p>
-          )}
         </div>
-        {error && <p className="error-message">{error}</p>}
+
+        {!passwordsMatch && (
+          <p className="errores-register">Las contraseñas no coinciden</p>
+        )}
         <button className="registrate" type="submit">
           Registrarse
         </button>

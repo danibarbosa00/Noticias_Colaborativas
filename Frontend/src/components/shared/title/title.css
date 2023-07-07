@@ -20,3 +20,15 @@ h1 {
   background-clip: text;
   color: transparent;
 }
+
+@media (min-width: 600px) {
+  .title > h1 {
+    font-size: 2.5em;
+  }
+}
+
+@media (min-width: 900px) {
+  .title > h1 {
+    font-size: 3.7em;
+  }
+}

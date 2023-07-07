@@ -10,7 +10,6 @@
   align-content: center;
   justify-content: center;
   max-width: 100vw;
-  min-height: 100vw;
   position: relative;
   background-image: url("../../../public/dark-bg.jpg");
   background-size: contain;
@@ -24,7 +23,7 @@
   padding: 1rem;
   padding-bottom: 0;
   background-color: azure;
-  width: 95%;
+  width: 375px;
   height: 90%;
   align-self: flex-start;
   box-shadow: 2px 2px 5px rgba(26, 53, 115, 0.6);

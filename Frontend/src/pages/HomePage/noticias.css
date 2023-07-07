@@ -300,9 +300,7 @@ h3 {
       " contenedorNoticias contenedorTemasTiempo"
       "paginate paginate";
   }
-  .paginate {
-    height: 5rem;
-  }
+
   .temas-tiempo {
     grid-area: contenedorTemasTiempo;
     display: flex;
@@ -345,9 +343,6 @@ h3 {
   .ulNoticiasValoradas {
     max-width: 35rem;
     margin: 0 auto;
-  }
-  .title > h1 {
-    font-size: 3em;
   }
   .buscador-input {
     width: 100%;
@@ -429,9 +424,7 @@ h3 {
   .contenedor {
     grid-template-columns: auto 25rem;
   }
-  .title > h1 {
-    font-size: 3.7em;
-  }
+
   #login,
   #register {
     width: 7rem;
