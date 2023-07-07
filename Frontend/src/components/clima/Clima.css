@@ -1,0 +1,26 @@
+.dia {
+  background-image: url("./iconosClima/dia.jpg");
+  background-color: rgba(0, 0, 0, 0.25);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: rgb(15, 15, 15);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  min-width: 100%;
+  min-height: 100%;
+  padding: 0.4rem;
+}
+.noche {
+  background-image: url("./iconosClima/noche.jpg");
+  background-color: rgba(0, 0, 0, 0.25);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  min-width: 100%;
+  min-height: 100%;
+  padding: 0.4rem;
+}

@@ -1,0 +1,15 @@
+.mis-noticias-acciones {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.no-hay-misNoticias {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: white;
+  min-height: 100vh;
+}

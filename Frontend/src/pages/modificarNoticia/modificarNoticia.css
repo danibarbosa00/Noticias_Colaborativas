@@ -1,0 +1,106 @@
+.contenedor-modificar-noticia {
+  display: grid;
+  grid-template-rows: 6rem 4rem auto;
+  grid-template-columns: 100vw;
+  grid-template-areas:
+    "header"
+    "returnButton"
+    "formulario-modificar";
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  max-width: 100vw;
+  min-height: 100vw;
+  position: relative;
+  background-image: url("../../../public/dark-bg.jpg");
+  background-size: contain;
+}
+
+.form-modificar {
+  grid-area: formulario-modificar;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding: 1rem;
+  padding-bottom: 0;
+  background-color: azure;
+  width: 95%;
+  height: 90%;
+  align-self: flex-start;
+  box-shadow: 2px 2px 5px rgba(26, 53, 115, 0.6);
+  background-color: rgb(226, 223, 223);
+  border-radius: 5px;
+}
+
+.form-modificar > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-modificar label:not(:first-child) {
+  margin-top: 1rem;
+}
+
+#modificar-noticia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.3rem;
+  width: 90%;
+  height: 90%;
+  margin: 1rem;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 2px 2px 15px rgba(26, 53, 115, 0.4);
+}
+
+#modificar-noticia legend {
+  background-color: rgb(242, 242, 242);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  text-align: center;
+  padding: 0.5rem;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
+
+#modificar-noticia button {
+  margin: 0.4rem;
+}
+
+#modificar-noticia img {
+  max-width: 10rem;
+  padding: 0.4rem;
+}
+
+#modificar-noticia input:not(#foto),
+#modificar-noticia textarea {
+  width: 100%;
+  height: 2rem;
+  border: none;
+  box-shadow: 2px 2px 3px inset rgba(26, 53, 115, 0.4);
+  background-color: rgb(237, 237, 237);
+  border-radius: 3px;
+}
+
+#foto {
+  border: none;
+}
+
+#modificar-noticia label {
+  text-align: center;
+}
+
+#modificar-noticia #texto {
+  height: 200px;
+}
+
+#modificar-noticia #entradilla {
+  height: 30px;
+}
+
+.error-modificar-noticia {
+  font-size: 1.1rem;
+}

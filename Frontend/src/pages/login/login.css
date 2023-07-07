@@ -1,0 +1,38 @@
+.content-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid blue;
+  box-shadow: 0 0 10px blue;
+  border-radius: 10px;
+  margin-top: 75px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.labelLogin {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.inputLogin {
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 8px;
+  transition: box-shadow 0.3s ease;
+}
+.modal-close {
+  margin-bottom: 2px;
+  float: right;
+}
+.logueate {
+  display: flex;
+  align-items: center;
+  margin: auto;
+}

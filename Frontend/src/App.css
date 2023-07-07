@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:wght@300;400;700&display=swap");
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Newsreader", serif;
+  font-weight: normal;
+}
+html,
+body {
+  height: 100%;
+}
+
+.header {
+  grid-area: header;
+}
+
+.paginate {
+  color: antiquewhite;
+}
+/* 
+body {
+  overflow-x: hidden;
+} */
+
+/* Para navegadores como chrome */
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: rgb(129, 136, 233);
+  border-radius: 3px;
+}
+
+.contenedor-temas::-webkit-scrollbar {
+  width: 1px;
+}
+
+.contenedor-temas::-webkit-scrollbar-thumb {
+  background-color: rgb(129, 136, 233);
+  border-radius: 3px;
+}
+
+/* Para navegadores como Firefox */
+html,
+.contenedor-temas {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(129, 136, 233) transparent;
+  border-radius: 3px;
+}

@@ -1,0 +1,416 @@
+{
+	"info": {
+		"_postman_id": "1388a73f-b596-4f5b-a27a-07d824c8dfb6",
+		"name": "PROYECTO NOTICIAS_COLABORATIVAS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27049437",
+		"_collection_link": "https://cloudy-capsule-53597.postman.co/workspace/Team-Workspace~1be38adf-c9a5-4434-8db9-1480a68c66d4/collection/27049437-1388a73f-b596-4f5b-a27a-07d824c8dfb6?action=share&creator=27049437&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Públicos",
+					"item": [
+						{
+							"name": "registerUsuario",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"NombreUsuario\",\r\n    \"email\": \"emailUsuario@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/usuario",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"usuario"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "loginUsuario",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"emailUsuario@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Privados",
+					"item": [
+						{
+							"name": "putUsuario",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "(TOKEN)",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "foto",
+											"type": "file",
+											"src": "/C:/Users/alexs/Pictures/Imagenes proyecto noticias/astronauta.jpg"
+										},
+										{
+											"key": "nombre",
+											"value": "nuevoNombre",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "nuevoEmail@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/usuario/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"usuario",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Noticias",
+			"item": [
+				{
+					"name": "Públicos",
+					"item": [
+						{
+							"name": "getNoticias",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/noticias",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"noticias"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getNoticiasPorId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/noticias/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"noticias",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getNoticiasFiltros",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/noticias?tema=Problemas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"noticias"
+									],
+									"query": [
+										{
+											"key": "tema",
+											"value": "Problemas"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getVotosNoticia",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/noticias/1/votos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"noticias",
+										"1",
+										"votos"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Privados",
+					"item": [
+						{
+							"name": "postNoticia",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "(TOKEN)",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "foto",
+											"type": "file",
+											"src": "/C:/Users/alexs/Pictures/Imagenes proyecto noticias/ciudad.jpg"
+										},
+										{
+											"key": "titulo",
+											"value": "El gobierno anuncia nuevas medidas contra el cambio climático",
+											"type": "text"
+										},
+										{
+											"key": "entradilla",
+											"value": "El gobierno se compromete a reducir las emisiones de gases de efecto invernadero",
+											"type": "text"
+										},
+										{
+											"key": "texto",
+											"value": "El gobierno ha anunciado hoy nuevas medidas para combatir el cambio climático y reducir las emisiones de gases de efecto invernadero. Entre las medidas se incluyen incentivos para el uso de energías renovables y la reducción de la huella de carbono de las empresas.",
+											"type": "text"
+										},
+										{
+											"key": "tema",
+											"value": "Problemas sociales y políticos",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/noticias",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"noticias"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteNoticia",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "(TOKEN)",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/noticias/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"noticias",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "putNoticia",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "(TOKEN)",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "foto",
+											"type": "file",
+											"src": "/C:/Users/alexs/Pictures/Imagenes proyecto noticias/carretera.jpg"
+										},
+										{
+											"key": "titulo",
+											"value": "TítuloNuevo",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/noticias/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"noticias",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "votarPositivo",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "(TOKEN)",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/noticias/1/votar/positivo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"noticias",
+										"1",
+										"votar",
+										"positivo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "votarNegativo",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "(TOKEN)",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/noticias/2/votar/negativo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"noticias",
+										"2",
+										"votar",
+										"negativo"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

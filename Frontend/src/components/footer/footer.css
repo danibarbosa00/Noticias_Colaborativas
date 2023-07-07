@@ -1,0 +1,108 @@
+.content-wrapper {
+  flex-grow: 1;
+}
+
+.footer {
+  font-family: "Play", sans-serif;
+  text-align: center;
+  width: 100vw;
+}
+
+.footer .row:not(.links) {
+  width: 100%;
+  padding: 0.5rem;
+  color: rgb(54, 48, 48);
+  font-size: 0.8em;
+  background-color: rgb(199, 205, 241);
+}
+
+.footer .row:not(.links):nth-child(2) ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer .row:not(.links):nth-child(3) {
+  font-size: 0.7em;
+}
+
+.links {
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+  border-bottom: 1px solid rgba(59, 58, 58, 0.3);
+  border-top: 1px solid rgba(59, 58, 58, 0.3);
+  padding: 1rem;
+}
+
+.footer .links a {
+  color: white;
+}
+
+a#facebook {
+  padding-right: 20px;
+  background: transparent url(/facebook.png) no-repeat top right;
+  background-size: contain;
+}
+
+a#instagram {
+  padding-right: 20px;
+  background: transparent url(/instagram.png) no-repeat top right;
+  background-size: contain;
+}
+
+a#youtube {
+  padding-right: 20px;
+  background: transparent url(/youtube.png) no-repeat top right;
+  background-size: contain;
+}
+
+a#twitter {
+  padding-right: 20px;
+  background: transparent url(/twitter.png) no-repeat top right;
+  background-size: contain;
+}
+
+.footer .row a {
+  text-decoration: none;
+
+  color: rgb(54, 48, 48);
+  transition: 0.5s;
+}
+
+.footer .row a:hover {
+  color: rgb(255, 255, 255);
+}
+
+.footer .row ul {
+  width: 100%;
+}
+
+.footer .row ul li {
+  display: inline-block;
+  margin: 0px 10px;
+  font-size: 0.6rem;
+}
+
+.footer .row a i {
+  font-size: 2em;
+  margin: 0% 1%;
+}
+
+/* @media (max-width: 720px) {
+  .footer {
+    text-align: left;
+    padding: 5%;
+  }
+  .footer .row ul li {
+    display: block;
+    margin: 10px 0px;
+    text-align: left;
+  }
+  .footer .row a i {
+    margin: 0% 3%;
+  }
+} */

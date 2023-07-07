@@ -1,0 +1,229 @@
+.contenedor-modificar-usuario {
+  display: grid;
+  grid-template-rows: 6rem 4rem auto;
+  grid-template-columns: 100vw;
+  grid-template-areas:
+    "header"
+    "returnButton"
+    "formulario-usuario";
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  max-width: 100vw;
+  min-height: 100vw;
+  position: relative;
+  background-image: url("../../../public/dark-bg.jpg");
+  background-size: contain;
+}
+
+.form-modificar-usuario {
+  grid-area: formulario-usuario;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  padding: 1rem;
+  padding-bottom: 0;
+  background-color: azure;
+  width: 95%;
+  height: 100%;
+  align-self: flex-start;
+  box-shadow: 2px 2px 5px rgba(26, 53, 115, 0.6);
+  background-color: rgb(226, 223, 223);
+  border-radius: 5px;
+  gap: 0.5rem;
+}
+
+.form-modificar-usuario > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+.div-fotoUsuario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.file-upload-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem;
+  gap: 0.5rem;
+}
+
+.div-contraseña {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.3rem;
+  padding-top: 0.8rem;
+}
+
+.div-contraseña label {
+  margin-top: 0.3rem;
+}
+
+.div-contraseña input {
+  width: 70%;
+}
+
+.div-delete-usuario {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.3rem;
+  padding: 0.8rem 0;
+  width: 100%;
+}
+
+.div-delete-usuario label {
+  font-style: italic;
+}
+
+.verificar-correo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+#input-confirmPassword {
+  margin-bottom: 0.3rem;
+}
+
+#modificar-usuario {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.5rem;
+  padding: 1.3rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 2px 2px 15px rgba(26, 53, 115, 0.4);
+}
+
+#modificar-usuario legend {
+  background-color: rgb(242, 242, 242);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  text-align: center;
+  padding: 0.5rem;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
+
+#modificar-usuario div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+
+#modificar-usuario div label {
+  margin-top: 0.3rem;
+}
+
+.btn-guardar-cambios {
+  margin: 1rem 0;
+}
+
+.cambiar-biografia {
+  width: 100%;
+}
+
+.cambiar-biografia textarea {
+  width: 100%;
+}
+
+.cambiar-biografia label {
+  font-weight: bold;
+}
+
+#deleteUserEmail {
+  height: 70%;
+}
+
+@media (min-width: 600px) {
+  .contenedor-modificar-usuario {
+    display: grid;
+    grid-template-rows: 6rem 4rem auto;
+    grid-template-columns: 100vw;
+    grid-template-areas:
+      "header"
+      "returnButton"
+      "formulario-usuario";
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    max-width: 100vw;
+    min-height: 100vw;
+    position: relative;
+    background-image: url("../../../public/dark-bg.jpg");
+    background-size: contain;
+    padding: 1rem;
+  }
+
+  .form-modificar-usuario {
+    grid-area: formulario-usuario;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.5fr 0.25fr 0.25fr;
+    justify-items: flex-start;
+    background-color: azure;
+    width: 95%;
+    height: 100%;
+    align-self: flex-start;
+    box-shadow: 2px 2px 5px rgba(26, 53, 115, 0.6);
+    background-color: rgb(226, 223, 223);
+    border-radius: 5px;
+    gap: 0.5rem;
+
+    grid-template-areas:
+      "formulario-usuario divFotoUsuario"
+      "formulario-usuario divContrasena"
+      "formulario-usuario divDeleteUsuario";
+  }
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .form-modificar-usuario > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .div-fotoUsuario {
+    grid-area: divFotoUsuario;
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    height: 300px;
+  }
+}
+.div-contraseña {
+  grid-area: divContrasena;
+}
+
+.div-delete-usuario {
+  grid-area: divDeleteUsuario;
+}

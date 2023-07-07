@@ -1,0 +1,114 @@
+.contenedor-crear-noticia {
+  display: grid;
+  grid-template-rows: 6rem 4rem auto;
+  grid-template-columns: 100vw;
+  grid-template-areas:
+    "header"
+    "returnButton"
+    "formulario";
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  min-height: 100%;
+  position: relative;
+  background-image: url("../../../public/dark-bg.jpg");
+  background-size: contain;
+}
+
+.return-button {
+  grid-area: returnButton;
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+}
+
+.form-crear {
+  grid-area: formulario;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding: 1rem;
+  padding-bottom: 0;
+  background-color: azure;
+  height: 90%;
+  align-self: flex-start;
+  box-shadow: 2px 2px 5px rgba(26, 53, 115, 0.6);
+  background-color: rgb(226, 223, 223);
+  border-radius: 5px;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  width: 90%;
+  min-width: 375px;
+}
+
+legend {
+  margin: auto;
+}
+
+.form-crear label:not(:first-child) {
+  margin-top: 1rem;
+}
+
+#crear-noticia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.3rem;
+  height: 90%;
+  margin: 1rem;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 2px 2px 15px rgba(26, 53, 115, 0.4);
+}
+
+#crear-noticia legend {
+  background-color: rgb(242, 242, 242);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  text-align: center;
+  padding: 0.5rem;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
+
+#crear-noticia button {
+  margin: 0.4rem;
+}
+
+#crear-noticia img {
+  max-width: 10rem;
+  padding: 0.4rem;
+}
+
+#crear-noticia input:not(#foto),
+#crear-noticia textarea {
+  width: 100%;
+  height: 2rem;
+  border: none;
+  box-shadow: 2px 2px 3px inset rgba(26, 53, 115, 0.4);
+  background-color: rgb(222, 226, 248);
+  border-radius: 3px;
+}
+
+#foto {
+  border: none;
+}
+
+#crear-noticia label {
+  text-align: center;
+}
+
+#crear-noticia #texto {
+  height: 200px;
+}
+
+#crear-noticia #entradilla {
+  height: 30px;
+}
+
+.error-crear-noticia {
+  display: flex;
+  justify-content: center;
+  font-size: 1.1rem;
+}
