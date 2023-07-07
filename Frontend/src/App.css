@@ -25,10 +25,6 @@ body {
 .paginate {
   color: antiquewhite;
 }
-/* 
-body {
-  overflow-x: hidden;
-} */
 
 /* Para navegadores como chrome */
 html::-webkit-scrollbar {
