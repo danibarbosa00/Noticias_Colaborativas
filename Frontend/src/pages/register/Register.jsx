@@ -16,7 +16,7 @@ const Register = ({ handleRegisterToLogin }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+
     reset,
     watch,
   } = useForm();
@@ -30,6 +30,11 @@ const Register = ({ handleRegisterToLogin }) => {
     } catch (error) {
       if (error && error.message === "¡Este email ya está registrado!") {
         setError("El email ya está en uso");
+      } else if (
+        error &&
+        error.message === "Ya existe un usuario con este nombre"
+      ) {
+        setError("El nombre ya está en uso");
       } else {
         console.error("Error:", error);
       }
@@ -65,9 +70,6 @@ const Register = ({ handleRegisterToLogin }) => {
               required: true,
             })}
           />
-          {errors.nombre && (
-            <p className="errores-register">Ingrese un nombre válido</p>
-          )}
         </div>
         <div className="form-group">
           <label className="labelRegister" htmlFor="email">
