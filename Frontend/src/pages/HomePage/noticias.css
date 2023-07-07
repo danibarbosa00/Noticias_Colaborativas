@@ -300,9 +300,7 @@ h3 {
       " contenedorNoticias contenedorTemasTiempo"
       "paginate paginate";
   }
-  .paginate {
-    height: 5rem;
-  }
+
   .temas-tiempo {
     grid-area: contenedorTemasTiempo;
     display: flex;
