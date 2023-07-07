@@ -153,7 +153,7 @@ function ModificarUsuario() {
           </Link>
         </div>
         <div className="form-modificar-usuario">
-          <form onSubmit={handleSubmit}>
+          <form className="form-fieldset-usuario" onSubmit={handleSubmit}>
             <fieldset id="modificar-usuario">
               <legend>Modifica aquí tu perfil</legend>
               <div className="cambiar-nombre">
@@ -296,7 +296,9 @@ function ModificarUsuario() {
             </button>
             {showPasswordFields && (
               <>
-                <label htmlFor="newPassword">Nueva contraseña</label>
+                <label className="labelNewPassword" htmlFor="newPassword">
+                  Nueva contraseña
+                </label>
                 <input
                   id="input-newPassword"
                   name="password"
@@ -307,7 +309,12 @@ function ModificarUsuario() {
                   onChange={handleChange}
                   required
                 />
-                <label htmlFor="confirmPassword">Confirmar contraseña</label>
+                <label
+                  className="labelConfirmPassword"
+                  htmlFor="confirmPassword"
+                >
+                  Confirmar contraseña
+                </label>
                 <input
                   id="input-confirmPassword"
                   name="confirmPassword"
@@ -322,12 +329,8 @@ function ModificarUsuario() {
             )}
             {errorPassword && <p>{errorPassword}</p>}
           </div>
-          <div>
-            <button
-              className="btn-guardar-cambios"
-              type="submit"
-              onClick={handleSubmit}
-            >
+          <div className="guardar-cambios">
+            <button type="submit" onClick={handleSubmit}>
               Guardar cambios
             </button>
           </div>
