@@ -52,7 +52,11 @@ function DeleteUsuario() {
   return (
     <div className="div-delete-usuario">
       {!openButton ? (
-        <button type="button" onClick={handleClickButton}>
+        <button
+          className="borrarUsuario"
+          type="button"
+          onClick={handleClickButton}
+        >
           Eliminar cuenta
         </button>
       ) : (

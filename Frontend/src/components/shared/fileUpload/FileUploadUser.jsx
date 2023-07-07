@@ -11,20 +11,20 @@ export const FileUploadUser = ({ setSelectedFile, selectedFile }) => {
     const fileReader = new FileReader();
     fileReader.onload = (event) => {
       const { result } = event.target;
-      document.getElementById("preview-image").src = result;
+      document.getElementById("image").src = result;
     };
     fileReader.readAsDataURL(e.target.files[0]);
   };
   const handleDeleteFile = () => {
     setSelectedFile(null);
-    document.getElementById("preview-image").src = defaultImageURL;
+    document.getElementById("image").src = defaultImageURL;
   };
 
   return (
     <div className="file-upload-component">
       <img
-        id="preview-image"
-        alt="Imagen usuario"
+        id="image"
+        alt=""
         src={
           `/${fotoUsuario}` !== defaultImageURL
             ? `${import.meta.env.VITE_BACKEND_URL}/usuarios/${fotoUsuario}`
