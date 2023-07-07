@@ -109,10 +109,6 @@
   }
 }
 @media (min-width: 900px) {
-  .title > h1 {
-    font-size: 3.1em;
-  }
-
   .mis-comentarios > h3 {
     font-size: 2rem;
   }
