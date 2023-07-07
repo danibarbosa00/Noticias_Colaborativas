@@ -186,11 +186,10 @@ textarea {
     justify-content: center;
     align-items: center;
     max-width: 100vw;
-    min-height: 100vw;
+    min-height: 100vh;
     position: relative;
     background-image: url("../../../public/dark-bg.jpg");
     background-size: contain;
-    padding: 1rem;
   }
 
   .form-modificar-usuario {
