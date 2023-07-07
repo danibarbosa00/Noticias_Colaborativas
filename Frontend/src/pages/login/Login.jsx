@@ -68,7 +68,9 @@ const Login = () => {
             id="email"
             {...register("email", { required: true, pattern: EMAIL_REGEX })}
           />
-          {errors.email && <p>Escribe el email completo</p>}
+          {errors.email && (
+            <p className="error-login">Escribe el email completo</p>
+          )}
         </div>
         <div className="form-group">
           <label className="labelLogin" htmlFor="password">
@@ -84,12 +86,14 @@ const Login = () => {
               maxLength: MAX_LENGTH_PASSWORD,
             })}
           />
-          {errors.password && <p>Contraseña inválida</p>}
+          {errors.password && (
+            <p className="error-login">Contraseña inválida</p>
+          )}
         </div>
         <button className="logueate" type="submit">
           Iniciar sesión
         </button>
-        {loginError && <p>{loginError}</p>}
+        {loginError && <p className="error-login">{loginError}</p>}
       </form>
     </div>
   );
