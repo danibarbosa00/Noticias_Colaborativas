@@ -276,9 +276,6 @@ function ModificarUsuario() {
                 ></textarea>
               </div>
               {error}
-              <button className="btn-guardar-cambios" type="submit">
-                Guardar cambios
-              </button>
             </fieldset>
           </form>
           <div className="div-fotoUsuario">
@@ -287,9 +284,6 @@ function ModificarUsuario() {
                 setSelectedFile={setSelectedFile}
                 selectedFile={selectedFile}
               />
-              <button className="btn-cambiar-foto" onClick={handleSubmit}>
-                Cambiar foto
-              </button>
             </>
           </div>
           <div className="div-contraseña">
@@ -327,11 +321,15 @@ function ModificarUsuario() {
               </>
             )}
             {errorPassword && <p>{errorPassword}</p>}
-            {showPasswordFields && (
-              <button className="btn-cambiar-contraseña" onClick={handleSubmit}>
-                Cambiar contraseña
-              </button>
-            )}
+          </div>
+          <div>
+            <button
+              className="btn-guardar-cambios"
+              type="submit"
+              onClick={handleSubmit}
+            >
+              Guardar cambios
+            </button>
           </div>
           <DeleteUsuario />
         </div>

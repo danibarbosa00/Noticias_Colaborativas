@@ -1,6 +1,6 @@
 button:not(.user-icon):not(.desplegableNoticias):not(.sesion):not(.perfil):not(
     .pulgarArriba
-  ):not(.pulgarAbajo) {
+  ):not(.pulgarAbajo):not(.borrarUsuario) {
   border-radius: 10px;
   padding: 8px 7px;
   font-size: 0.9rem;
@@ -16,7 +16,7 @@ button:not(.user-icon):not(.desplegableNoticias):not(.sesion):not(.perfil):not(
 
 button:not(.user-icon):not(.desplegableNoticias):not(.sesion):not(.perfil):not(
     .pulgarArriba
-  ):not(.pulgarAbajo):hover {
+  ):not(.pulgarAbajo):not(.borrarUsuario):hover {
   background-color: rgb(83, 92, 170);
   box-shadow: 2px 2px 3px inset rgba(0, 0, 0, 0.5);
 }
