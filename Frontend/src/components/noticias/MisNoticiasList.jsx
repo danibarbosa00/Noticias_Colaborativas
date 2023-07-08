@@ -73,7 +73,12 @@ const MisNoticiasList = ({ misNoticias }) => {
             );
           })
         ) : (
-          <p className="no-hay-misNoticias">No tienes noticias creadas</p>
+          <p className="no-hay-misNoticias">
+            No tienes noticias creadas{" "}
+            <Link to="/noticias/login/crearNoticia">
+              <button className="crear-noticia">Crear tu noticia</button>
+            </Link>
+          </p>
         )}
       </ul>
 
