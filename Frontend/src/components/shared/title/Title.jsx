@@ -4,8 +4,8 @@ import "./title.css";
 
 function Title({ text, link }) {
   return (
-    <Link className="title" to={link}>
-      <h1>{text}</h1>
+    <Link className="content" to={link}>
+      <h1 className="text_shadows">{text}</h1>
     </Link>
   );
 }
