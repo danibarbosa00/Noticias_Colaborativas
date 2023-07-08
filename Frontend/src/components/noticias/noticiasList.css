@@ -74,6 +74,7 @@
 
 .selected img {
   max-width: 16rem;
+  padding: 0.2rem;
 }
 
 .tema-noticia {

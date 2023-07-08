@@ -47,8 +47,3 @@
   border: 1px solid rgba(26, 53, 115, 0.6);
   max-width: 8rem;
 }
-
-.selected img {
-  padding: 0.2rem;
-  max-width: 18rem;
-}

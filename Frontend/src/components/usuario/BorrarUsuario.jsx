@@ -74,7 +74,11 @@ function DeleteUsuario() {
               placeholder="Escribe tu correo electrónico"
             />
             {error && <p className="error">{error}</p>}
-            <button type="button" onClick={handleDeleteUserSubmit}>
+            <button
+              className="borrarUsuario"
+              type="button"
+              onClick={handleDeleteUserSubmit}
+            >
               Eliminar cuenta
             </button>
           </div>
