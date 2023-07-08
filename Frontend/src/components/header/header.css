@@ -86,6 +86,10 @@
   width: 56.5px;
 }
 
+.user-icon:hover {
+  transform: scale(0.9);
+}
+
 .user-icon img {
   display: block;
   width: 100%;
