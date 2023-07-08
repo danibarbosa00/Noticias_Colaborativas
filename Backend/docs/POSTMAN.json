@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "1388a73f-b596-4f5b-a27a-07d824c8dfb6",
 		"name": "PROYECTO NOTICIAS_COLABORATIVAS",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "27049437",
 		"_collection_link": "https://cloudy-capsule-53597.postman.co/workspace/Team-Workspace~1be38adf-c9a5-4434-8db9-1480a68c66d4/collection/27049437-1388a73f-b596-4f5b-a27a-07d824c8dfb6?action=share&creator=27049437&source=collection_link"
 	},
@@ -20,24 +20,14 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"nombre\": \"NombreUsuario\",\r\n    \"email\": \"emailUsuario@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+									"raw": "{\r\n    \"nombre\": \"Alex\",\r\n    \"email\": \"alex@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/usuario",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"usuario"
-									]
-								}
+								"url": "http://localhost:3000/usuario"
 							},
 							"response": []
 						},
@@ -48,24 +38,14 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"email\": \"emailUsuario@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+									"raw": "{\r\n    \"email\": \"alex@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": {
-									"raw": "http://localhost:3000/login",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"login"
-									]
-								}
+								"url": "http://localhost:3000/login"
 							},
 							"response": []
 						}
@@ -91,32 +71,43 @@
 										{
 											"key": "foto",
 											"type": "file",
-											"src": "/C:/Users/alexs/Pictures/Imagenes proyecto noticias/astronauta.jpg"
+											"src": [],
+											"disabled": true
 										},
 										{
-											"key": "nombre",
-											"value": "nuevoNombre",
+											"key": "nickName",
+											"value": "Alexis",
 											"type": "text"
 										},
 										{
 											"key": "email",
-											"value": "nuevoEmail@gmail.com",
+											"value": "alex23@gmail.com",
 											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"type": "text",
+											"disabled": true
 										}
 									]
 								},
-								"url": {
-									"raw": "http://localhost:3000/usuario/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"usuario",
-										"2"
-									]
-								}
+								"url": "http://localhost:3000/usuario/1"
+							},
+							"response": []
+						},
+						{
+							"name": "deleteUsuario",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "(TOKEN)",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:3000/usuario/1"
 							},
 							"response": []
 						}
@@ -132,20 +123,17 @@
 					"item": [
 						{
 							"name": "getNoticias",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/noticias",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"noticias"
-									]
-								}
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": "http://localhost:3000/noticias"
 							},
 							"response": []
 						},
@@ -154,18 +142,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/noticias/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"noticias",
-										"2"
-									]
-								}
+								"url": "http://localhost:3000/noticias/1"
 							},
 							"response": []
 						},
@@ -195,23 +172,20 @@
 							"response": []
 						},
 						{
-							"name": "getVotosNoticia",
+							"name": "getNoticiasNickName",
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/noticias/1/votos",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"noticias",
-										"1",
-										"votos"
-									]
-								}
+								"url": "http://localhost:3000/noticias/usuarios/nickName"
+							},
+							"response": []
+						},
+						{
+							"name": "getNoticiasValoradas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/noticias/valoradas"
 							},
 							"response": []
 						}
@@ -237,11 +211,11 @@
 										{
 											"key": "foto",
 											"type": "file",
-											"src": "/C:/Users/alexs/Pictures/Imagenes proyecto noticias/ciudad.jpg"
+											"src": "/C:/Users/alexs/Pictures/Imagenes proyecto noticias/carretera.jpg"
 										},
 										{
 											"key": "titulo",
-											"value": "El gobierno anuncia nuevas medidas contra el cambio climático",
+											"value": "TituloNoticia",
 											"type": "text"
 										},
 										{
@@ -261,17 +235,7 @@
 										}
 									]
 								},
-								"url": {
-									"raw": "http://localhost:3000/noticias",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"noticias"
-									]
-								}
+								"url": "http://localhost:3000/noticias"
 							},
 							"response": []
 						},
@@ -286,18 +250,7 @@
 										"type": "text"
 									}
 								],
-								"url": {
-									"raw": "http://localhost:3000/noticias/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"noticias",
-										"2"
-									]
-								}
+								"url": "http://localhost:3000/noticias/6"
 							},
 							"response": []
 						},
@@ -318,7 +271,8 @@
 										{
 											"key": "foto",
 											"type": "file",
-											"src": "/C:/Users/alexs/Pictures/Imagenes proyecto noticias/carretera.jpg"
+											"src": [],
+											"disabled": true
 										},
 										{
 											"key": "titulo",
@@ -333,18 +287,61 @@
 										}
 									]
 								},
-								"url": {
-									"raw": "http://localhost:3000/noticias/1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"noticias",
-										"1"
-									]
-								}
+								"url": "http://localhost:3000/noticias/3"
+							},
+							"response": []
+						},
+						{
+							"name": "getMisNoticias",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "(TOKEN)",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:3000/noticias/2/votos"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Votos",
+			"item": [
+				{
+					"name": "Públicos",
+					"item": [
+						{
+							"name": "getVotosNoticia",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/noticias/2/votos"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Privados",
+					"item": [
+						{
+							"name": "getVotoUsuario",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "(TOKEN)",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:3000/noticias/votos/2"
 							},
 							"response": []
 						},
@@ -363,20 +360,7 @@
 									"mode": "raw",
 									"raw": ""
 								},
-								"url": {
-									"raw": "http://localhost:3000/noticias/1/votar/positivo",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"noticias",
-										"1",
-										"votar",
-										"positivo"
-									]
-								}
+								"url": "http://localhost:3000/noticias/2/votar/positivo"
 							},
 							"response": []
 						},
@@ -391,20 +375,66 @@
 										"type": "text"
 									}
 								],
-								"url": {
-									"raw": "http://localhost:3000/noticias/2/votar/negativo",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"noticias",
-										"2",
-										"votar",
-										"negativo"
-									]
-								}
+								"url": "http://localhost:3000/noticias/1/votar/negativo"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Comentarios",
+			"item": [
+				{
+					"name": "Privados",
+					"item": [
+						{
+							"name": "postComentario",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "(TOKEN)",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Esta noticia me ha encantado!\"\r\n}"
+								},
+								"url": "https://localhost:3000/noticias/2/comentarios"
+							},
+							"response": []
+						},
+						{
+							"name": "deleteComentario",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "(TOKEN)",
+										"type": "text"
+									}
+								],
+								"url": "https://localhost:3000/noticias/comentario/2"
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "(TOKEN)",
+										"type": "text"
+									}
+								],
+								"url": "https://localhost:3000/miscomentarios"
 							},
 							"response": []
 						}

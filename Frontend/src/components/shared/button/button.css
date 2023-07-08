@@ -21,6 +21,11 @@ button:not(.user-icon):not(.desplegableNoticias):not(.sesion):not(.perfil):not(
   box-shadow: 2px 2px 3px inset rgba(0, 0, 0, 0.5);
 }
 
+button.pulgarArriba:hover,
+button.pulgarAbajo:hover {
+  box-shadow: 2px 2px 3px inset rgba(0, 0, 0, 0.3);
+}
+
 /* Desplegable perfil y cerrar sesión */
 .dropdown {
   list-style: none;
