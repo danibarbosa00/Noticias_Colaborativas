@@ -40,6 +40,7 @@ function ModificarUsuario() {
   const [errorPassword, setErrorPassword] = useState("");
   const [showPasswordFields, setShowPasswordFields] = useState(false);
   const [error, setError] = useState("");
+  const [formError, setFormError] = useState(false);
 
   const handleCerrarSesion = () => {
     localStorage.removeItem("email");
@@ -53,8 +54,22 @@ function ModificarUsuario() {
   };
 
   const handleSubmit = async (e) => {
-    console.log("sending");
     e.preventDefault();
+
+    if (
+      values.nombre === "" &&
+      values.nickName === "" &&
+      values.email === "" &&
+      values.biografia === "" &&
+      values.password === "" &&
+      values.confirmPassword === "" &&
+      !selectedFile
+    ) {
+      setFormError(true);
+      return;
+    }
+
+    console.log("Sending...");
     const formData = new FormData();
     if (values.nombre !== "") {
       formData.append("nombre", values.nombre);
@@ -88,7 +103,7 @@ function ModificarUsuario() {
       setShowPasswordFields(false);
       swal({
         title: "Cambios aceptados!",
-        text: "Logueate de nuevo para aplicarlos",
+        text: "Inicia sesión de nuevo para aplicarlos.",
         icon: "success",
       });
       handleCerrarSesion();
@@ -275,7 +290,7 @@ function ModificarUsuario() {
                   onChange={handleChange}
                 ></textarea>
               </div>
-              {error}
+              <p id="form-error-repetido">{error}</p>
             </fieldset>
           </form>
           <div className="div-fotoUsuario">
@@ -334,6 +349,9 @@ function ModificarUsuario() {
               Guardar cambios
             </button>
           </div>
+          {formError && (
+            <p id="form-error-empty">Debes rellenar al menos un campo!</p>
+          )}
           <DeleteUsuario />
         </div>
       </div>

@@ -221,6 +221,16 @@
   background-color: rgb(226, 17, 17);
   box-shadow: 2px 2px 3px inset rgba(0, 0, 0, 0.5);
 }
+
+#form-error-empty {
+  text-align: center;
+}
+
+#form-error-empty,
+#form-error-repetido {
+  color: rgb(202, 30, 30);
+}
+
 @media (min-width: 600px) {
   .contenedor-modificar-usuario {
     display: grid;
