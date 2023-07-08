@@ -28,12 +28,18 @@ function MisNoticias() {
               <button>Volver al inicio</button>
             </Link>
           </div>
-
           <section className="mis-noticias">
             {misNoticias.length > 0 ? (
               <MisNoticiasList misNoticias={misNoticias} />
             ) : (
-              <p className="no-hay-misNoticias">Anímate a subir una noticia.</p>
+              <div className="sinNoticias">
+                <p className="no-hay-misNoticias">
+                  Anímate a subir una noticia.{" "}
+                  <Link to="/noticias/login/crearNoticia">
+                    <button className="crear-noticia">Crear tu noticia</button>
+                  </Link>
+                </p>
+              </div>
             )}
           </section>
         </div>
