@@ -48,6 +48,24 @@
 								"url": "http://localhost:3000/login"
 							},
 							"response": []
+						},
+						{
+							"name": "getUsuarioNombre",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "https://localhost:3000/usuario/nombre"
+							},
+							"response": []
+						},
+						{
+							"name": "getUsuarioNickName",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "https://localhost:3000/usuario/nickName"
+							},
+							"response": []
 						}
 					]
 				},
