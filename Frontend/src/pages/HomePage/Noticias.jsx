@@ -3,9 +3,10 @@ import useNoticias from "../../hooks/useNoticias";
 import { Header } from "../../components/header/Header";
 import BuscadorTituloInput from "../../components/shared/inputs/InputSearchTitulo";
 import { Button } from "../../components/shared/button/Button";
-import "./noticias.css";
 import Clima from "../../components/clima/Clima";
 import ReactPaginate from "react-paginate";
+
+import "./noticias.css";
 
 function Noticias() {
   const {
@@ -25,19 +26,15 @@ function Noticias() {
     indexOfLastNoticia1
   );
   const pageCount = Math.ceil(misNoticias.length / noticiasPerPage);
-
   const handlePageChange1 = (selected) => {
     setCurrentPage1(selected.selected);
   };
-
   if (!noticias.noticias && loading) {
     return <p>Cargando noticias...</p>;
   }
-
   if (error) {
     return <p>{error}</p>;
   }
-
   return (
     <div className="contenedor-homePage">
       <Header />
@@ -59,7 +56,6 @@ function Noticias() {
             />
           </li>
         </ul>
-
         <div className="temas-tiempo">
           <Clima />
           <section className="contenedor-temas">
@@ -109,7 +105,6 @@ function Noticias() {
             />
           </section>
         </div>
-
         <section className="contenedor-noticias">
           <NoticiasList
             noticias={currentNoticias}

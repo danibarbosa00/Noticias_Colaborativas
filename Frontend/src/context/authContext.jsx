@@ -15,7 +15,6 @@ export function AuthProvider({ children }) {
       ? { token, email, id, nombre, fotoUsuario, biografia, nickName }
       : null
   );
-
   return (
     <Context.Provider value={{ user, setUser }}>{children}</Context.Provider>
   );

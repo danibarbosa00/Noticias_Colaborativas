@@ -13,9 +13,11 @@
   background-size: contain;
 }
 
+
 .liNoticias > article {
   min-width: 100%;
 }
+
 .body-mis-noticias {
   min-height: 100%;
   min-width: 100%;

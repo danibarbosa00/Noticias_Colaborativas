@@ -5,7 +5,6 @@ const useMisNoticias = (user) => {
   const [misNoticias, setMisNoticias] = useState([]);
   const [loadingMisNoticias, setLoadingMisNoticias] = useState([false]);
   const [errorMisNoticias, setErrorMisNoticias] = useState("");
-
   useEffect(() => {
     const loadMisNoticias = async () => {
       try {

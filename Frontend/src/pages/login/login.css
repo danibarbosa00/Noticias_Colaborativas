@@ -27,10 +27,12 @@
   padding: 8px;
   transition: box-shadow 0.3s ease;
 }
+
 .modal-close {
   margin-bottom: 2px;
   float: right;
 }
+
 .logueate {
   display: flex;
   align-items: center;
