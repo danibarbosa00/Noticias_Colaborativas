@@ -69,3 +69,17 @@ export async function deleteUserService(id, user) {
   );
   return response.data;
 }
+
+export async function getPerfilUsuarioNombre(nombre) {
+  const datosUsuarioNombre = await axios.get(
+    `${import.meta.env.VITE_BACKEND_URL}/usuarios/usuario/nombre/${nombre}`
+  );
+  return datosUsuarioNombre;
+}
+
+export async function getPerfilUsuarioNickName(nickName) {
+  const datosUsuarioNickName = await axios.get(
+    `${import.meta.env.VITE_BACKEND_URL}/usuarios/usuario/nickName/${nickName}`
+  );
+  return datosUsuarioNickName;
+}

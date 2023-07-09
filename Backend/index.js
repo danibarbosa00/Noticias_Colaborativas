@@ -20,6 +20,8 @@ const {
   loginUsuario,
   updateUsuario,
   deleteUsuario,
+  getUsuarioNombre,
+  getUsuarioNickName,
 } = require("./src/controllers/usuariosControllers");
 const autentificarUsuario = require("./src/middlewares/autentificacion");
 const {
@@ -64,6 +66,12 @@ app.get("/noticias/usuarios/nombre/:nombre", getNoticiasNombre);
 
 //localhost:3000/noticias/:id --> RUTA PARA BUSCAR UNA NOTICIA POR EL NICKNAME DEL AUTOR
 app.get("/noticias/usuarios/nickName/:nickName", getNoticiasNickName);
+
+//localhost:3000/usuario/:id --> RUTA PARA BUSCAR USUARIO POR NICKNAME
+app.get("/usuarios/usuario/nickName/:nickName", getUsuarioNickName);
+
+//localhost:3000/usuario/:id --> RUTA PARA BUSCAR USUARIO NOMBRE
+app.get("/usuarios/usuario/nombre/:nombre", getUsuarioNombre);
 
 //ENDPOINTS PRIVADOS
 
