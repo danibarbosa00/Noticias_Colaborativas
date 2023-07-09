@@ -12,10 +12,7 @@
   background-image: url("/public/dark-bg.jpg");
   background-size: contain;
 }
-.liNoticias {
-  margin-left: 5%;
-  margin-right: 5%;
-}
+
 .liNoticias > article {
   min-width: 100%;
 }
