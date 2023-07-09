@@ -21,8 +21,20 @@ button:not(.user-icon):not(.desplegableNoticias):not(.sesion):not(.perfil):not(
   box-shadow: 2px 2px 3px inset rgba(0, 0, 0, 0.5);
 }
 
+button:not(.user-icon):not(.desplegableNoticias):not(.sesion):not(.perfil):not(
+    .pulgarArriba
+  ):not(.pulgarAbajo):not(.borrarUsuario):active {
+  background-color: rgb(83, 92, 170);
+  box-shadow: 2px 2px 3px inset rgba(0, 0, 0, 0.5);
+}
+
 button.pulgarArriba:hover,
 button.pulgarAbajo:hover {
+  box-shadow: 2px 2px 3px inset rgba(0, 0, 0, 0.3);
+}
+
+button.pulgarArriba:active,
+button.pulgarAbajo:active {
   box-shadow: 2px 2px 3px inset rgba(0, 0, 0, 0.3);
 }
 
