@@ -27,10 +27,7 @@ const {
   buscarNoticiasPorIdUsuario,
   borrarNoticiaId,
 } = require("../../db/noticias");
-const {
-  buscarVotosPorIdNoticia,
-  borrarVotosNoticia,
-} = require("../../db/votos");
+const { borrarVotosNoticia } = require("../../db/votos");
 
 const schema = joi.object().keys({
   nombre: joi.string().min(2).max(20).required(),
@@ -209,7 +206,7 @@ const deleteUsuario = async (req, res, next) => {
     const comentarios = await buscarComentarioPorIdUsuario(id);
     if (comentarios.length > 0) {
       for (const comentario of comentarios) {
-        await borrarComentarioConIdComentario(comentario.id); // Eliminar cada comentario asociado al usuario
+        await borrarComentarioConIdComentario(comentario.id);
       }
     }
     const noticias = await buscarNoticiasPorIdUsuario(id);
@@ -224,7 +221,7 @@ const deleteUsuario = async (req, res, next) => {
           );
           await fs.unlink(rutaArchivo);
         }
-        await borrarNoticiaId(noticia.id); // Eliminar cada noticia asociada al usuario
+        await borrarNoticiaId(noticia.id);
       }
     }
     if (usuario.foto !== "fotobase.jpg") {
@@ -246,11 +243,56 @@ const deleteUsuario = async (req, res, next) => {
   }
 };
 
+const getUsuarioNickName = async (req, res, next) => {
+  try {
+    const { nickName } = req.params;
+    if (nickName) {
+      const usuario = await buscarUsuarioPorNickName(nickName);
+      if (usuario === undefined || usuario.length === 0) {
+        const error = {
+          status: 404,
+          message: "No hay usuario con este nickName",
+        };
+        throw error;
+      } else {
+        res.send({
+          status: "Ok",
+          data: usuario,
+        });
+      }
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+const getUsuarioNombre = async (req, res, next) => {
+  try {
+    const { nombre } = req.params;
+    if (nombre) {
+      const usuario = await buscarUsuarioPorNombre(nombre);
+      console.log(usuario);
+      if (usuario === undefined || usuario.length === 0) {
+        const error = {
+          status: 404,
+          message: "No hay usuario con este nombre",
+        };
+        throw error;
+      } else {
+        res.send({
+          status: "Ok",
+          data: usuario,
+        });
+      }
+    }
+  } catch (error) {
+    next(error);
+  }
+};
 module.exports = {
   nuevoUsuario,
   loginUsuario,
   updateUsuario,
   deleteUsuario,
-  buscarUsuarioPorNickName,
-  buscarUsuarioPorNombre,
+  getUsuarioNickName,
+  getUsuarioNombre,
 };

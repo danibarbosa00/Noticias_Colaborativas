@@ -37,20 +37,6 @@ const crearUsuario = async (nombre, email, password, foto) => {
   }
 };
 
-const buscarUsuarioPorNombre = async (nombre) => {
-  let connection;
-  try {
-    connection = await getConnection();
-    const [[result]] = await connection.query(
-      `select * from usuarios where nombre = ?`,
-      [nombre]
-    );
-    return result;
-  } finally {
-    if (connection) connection.release();
-  }
-};
-
 const buscarUsuarioPorEmail = async (email) => {
   let connection;
   try {
@@ -167,8 +153,21 @@ const buscarUsuarioPorNickName = async (nickName) => {
   try {
     connection = await getConnection();
     const [[result]] = await connection.query(
-      `SELECT * FROM usuarios WHERE nickName = ?`,
+      `SELECT usuarios.nombre, usuarios.nickName, usuarios.foto, usuarios.biografia FROM usuarios WHERE nickName = ?`,
       [nickName]
+    );
+    return result;
+  } finally {
+    if (connection) connection.release();
+  }
+};
+const buscarUsuarioPorNombre = async (nombre) => {
+  let connection;
+  try {
+    connection = await getConnection();
+    const [[result]] = await connection.query(
+      `SELECT usuarios.nombre, usuarios.nickName, usuarios.foto, usuarios.biografia FROM usuarios WHERE nombre = ?`,
+      [nombre]
     );
     return result;
   } finally {

@@ -15,7 +15,8 @@ import "./pages/HomePage/noticias.css";
 import "./pages/HomePageLogin/noticiasLogueado.css";
 import ModificarUsuario from "./pages/modificarUsuario/ModificarUsuario";
 import { AuthProvider } from "./context/authContext";
-
+import { PerfilUsuarioNickName } from "../src/pages/perfilUsuario/PerfilUsuario";
+import { PerfilUsuarioNombre } from "../src/pages/perfilUsuario/PerfilUsuario";
 function App() {
   return (
     <div className="App">
@@ -28,6 +29,14 @@ function App() {
           <Route
             path="/noticias/login/crearNoticia"
             element={<CrearNoticia />}
+          />
+          <Route
+            path="/usuarios/usuario/nombre/:nombre"
+            element={<PerfilUsuarioNombre />}
+          />
+          <Route
+            path="/usuarios/usuario/nickName/:nickName"
+            element={<PerfilUsuarioNickName />}
           />
           <Route
             path="/noticias/login/modificarNoticia/:id"

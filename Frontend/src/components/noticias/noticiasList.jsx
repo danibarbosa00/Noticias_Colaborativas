@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Noticia } from "./Noticia";
 import { NoticiaCorta } from "./NoticiaCorta";
 import "./noticiasList.css";
-
+import { useNavigate } from "react-router-dom";
+import { Context } from "../../context/authContext";
 const titulos = {
   ultimas: "Últimas noticias",
   valoradas: "Noticias más valoradas",
@@ -12,10 +13,10 @@ const titulos = {
   titulo: "Búsqueda por título -",
   misNoticias: "",
 };
-
 const NoticiasList = ({ noticias, loadNoticias, type }) => {
+  const { user } = useContext(Context);
+  const navigate = useNavigate();
   const [selectedNoticiaId, setSelectedNoticiaId] = useState(null);
-
   const handleClick = (noticiaId) => {
     if (selectedNoticiaId === noticiaId) {
       setSelectedNoticiaId(null);
@@ -23,17 +24,40 @@ const NoticiasList = ({ noticias, loadNoticias, type }) => {
       setSelectedNoticiaId(noticiaId);
     }
   };
-
+  const handleClickNombre = () => {
+    const nombre = type.subItem;
+    navigate(`/usuarios/usuario/nombre/${nombre}`);
+  };
+  const handleClickNickName = () => {
+    const nickName = type.subItem;
+    navigate(`/usuarios/usuario/nickName/${nickName}`);
+  };
   return noticias.length !== 0 ? (
     <div className="divContenedorNoticias">
       <h3>
         {titulos[type.type]} {type.subItem || ""}
+        {user ? (
+          type.type === "nickName" ? (
+            <button className="enlace-usuario" onClick={handleClickNickName}>
+              Perfil del usuario
+            </button>
+          ) : (
+            type.type === "nombre" && (
+              <button className="enlace-usuario" onClick={handleClickNombre}>
+                Perfil del usuario
+              </button>
+            )
+          )
+        ) : (
+          (type.type === "nickName" || type.type === "nombre") && (
+            <p>Logueate para ver su perfil</p>
+          )
+        )}
       </h3>
       <ul className="ulNoticias">
         {noticias.map((noticia) => {
           const fecha = new Date(noticia.noticia.created_at);
           const fechaFormateada = fecha.toLocaleString();
-
           return (
             <li
               key={noticia.noticia.id}
@@ -64,7 +88,6 @@ const NoticiasList = ({ noticias, loadNoticias, type }) => {
                   )}{" "}
                   ({fechaFormateada})
                 </p>
-
                 <button
                   className="desplegableNoticias"
                   onClick={() => handleClick(noticia.noticia.id)}
@@ -86,5 +109,4 @@ const NoticiasList = ({ noticias, loadNoticias, type }) => {
     <p className="no-hay-noticias">Sé el primero en subir una noticia</p>
   );
 };
-
 export default NoticiasList;
