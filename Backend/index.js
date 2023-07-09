@@ -3,7 +3,6 @@ const fileupload = require("express-fileupload");
 const app = express();
 const cors = require("cors");
 app.use(cors());
-
 const {
   getNoticiaPorId,
   nuevaNoticia,
@@ -141,7 +140,6 @@ app.use((req, res) => {
 // Middleware de gestión de errores
 app.use((error, req, res, next) => {
   console.error(error);
-
   res.status(error.httpStatus || 500).send({
     status: "error",
     message: error.message,

@@ -6,7 +6,6 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { nanoid } = require("nanoid");
 require("dotenv").config();
-
 const {
   crearUsuario,
   buscarUsuarioPorEmail,
@@ -80,7 +79,6 @@ const loginUsuario = async (req, res, next) => {
     const token = jwt.sign(payload, process.env.SECRET, {
       expiresIn: "30d",
     });
-
     const data = {
       token: token,
       usuario: usuario,
@@ -111,7 +109,6 @@ const updateUsuario = async (req, res, next) => {
     await schemaIdUsuario.validateAsync(id);
     await schemaUpdateUsuario.validateAsync(body);
     const usuario = await buscarUsuarioPorId(id);
-
     if (!usuario) {
       throw generateError("¡No existe ningún usuario con este Id!", 400);
     }
@@ -121,7 +118,6 @@ const updateUsuario = async (req, res, next) => {
         403
       );
     }
-
     if (body.nombre) {
       const usuarioEncontrado = await buscarUsuarioPorNombre(body.nombre);
       if (usuarioEncontrado && usuarioEncontrado.nombre) {
@@ -140,22 +136,18 @@ const updateUsuario = async (req, res, next) => {
         throw generateError("¡Este nickName ya está registrado!", 409);
       }
     }
-
     if (req.files && req.files.foto) {
       const uploadsDir = path.join(__dirname, "../uploads");
       const usuariosDir = path.join(__dirname, "../uploads/usuarios");
-
       console.log("Creando directorio para las imágenes...");
       await crearCarpetaSiNoExiste(uploadsDir);
       await crearCarpetaSiNoExiste(usuariosDir);
       console.log("Procesando las imágenes...");
       const dataFoto = sharp(req.files.foto.data);
       dataFoto.resize(1000);
-
       console.log("Encriptando imágenes...");
       const idIMG = nanoid(10);
       const foto = `${idIMG}.jpg`;
-
       if (usuario.foto !== "fotobase.jpg") {
         console.log("Eliminando imágenes antiguas...");
         const rutaArchivo = path.resolve(
@@ -179,7 +171,6 @@ const updateUsuario = async (req, res, next) => {
       console.log("Modificando datos...");
       await modificarUsuarioSinFoto(id, body);
     }
-
     res.send({
       status: "Ok",
       message: "Has modificado con éxito tu perfil",
@@ -194,15 +185,12 @@ const deleteUsuario = async (req, res, next) => {
   try {
     const { id } = req.params;
     const usuario = await buscarUsuarioPorId(id);
-
     if (!usuario) {
       throw generateError("¡No existe el usuario que intentas borrar!");
     }
-
     if (usuario.id !== req.usuarioId) {
       throw generateError("¡No tienes permisos para borrar este usuario!");
     }
-
     const comentarios = await buscarComentarioPorIdUsuario(id);
     if (comentarios.length > 0) {
       for (const comentario of comentarios) {
@@ -231,9 +219,7 @@ const deleteUsuario = async (req, res, next) => {
       );
       await fs.unlink(rutaArchivo);
     }
-
     await borrarUsuarioId(id);
-
     res.send({
       status: "Ok",
       message: `¡El usuario con id: ${id} y sus comentarios, noticias asociadas han sido borrados exitosamente!`,
@@ -265,6 +251,7 @@ const getUsuarioNickName = async (req, res, next) => {
     next(error);
   }
 };
+
 const getUsuarioNombre = async (req, res, next) => {
   try {
     const { nombre } = req.params;
@@ -288,6 +275,7 @@ const getUsuarioNombre = async (req, res, next) => {
     next(error);
   }
 };
+
 module.exports = {
   nuevoUsuario,
   loginUsuario,
