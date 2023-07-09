@@ -5,7 +5,6 @@ const useVotosNoticia = (id_noticia) => {
   const [votosInicial, setVotosInicial] = useState([]);
   const [loadingVotos, setLoadingVotos] = useState([false]);
   const [errorVotos, setErrorVotos] = useState("");
-
   useEffect(() => {
     const loadVotos = async () => {
       try {

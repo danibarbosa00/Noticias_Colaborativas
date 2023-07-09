@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getPerfilUsuarioNickName } from "../services/UserService";
+
 export const useDatosUsuarioNickname = (nickName) => {
   const [datosUsuarioNickName, setDatosUsuarioNickName] = useState([]);
   const [loadingUsuarioNickName, setLoadingUsuarioNickName] = useState(false);

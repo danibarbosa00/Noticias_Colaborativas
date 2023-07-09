@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import "./crearNoticia.css";
 import swal from "sweetalert";
 import { postNoticia } from "../../services/NoticiasService";
 import FileUploadComponent from "../../components/shared/fileUpload/FileUpload";
@@ -7,7 +6,6 @@ import { HeaderLog } from "../../components/header/HeaderLog";
 import { Link, useNavigate } from "react-router-dom";
 import { Permissions } from "../../components/permisions/Permisions";
 import { Context } from "../../context/authContext";
-
 import {
   MAX_LENGTH_ENTRADILLA,
   MAX_LENGTH_TEXTO,
@@ -16,23 +14,22 @@ import {
   MIN_LENGTH_TITULO,
 } from "../../utils/constants";
 
+import "./crearNoticia.css";
+
 function CrearNoticia() {
   const navigate = useNavigate();
   const { user } = useContext(Context);
-
   const [values, setValues] = React.useState({
     titulo: "",
     entradilla: "",
     tema: "",
     texto: "",
   });
-
   const [selectedFile, setSelectedFile] = React.useState(null);
   const [error, setError] = useState(false);
   const [errorTema, setErrorTema] = useState(false);
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-
     if (values.titulo === "" || values.entradilla === "") {
       setError(true);
       return;
@@ -61,7 +58,6 @@ function CrearNoticia() {
     });
     navigate("/noticias/login");
   };
-
   function handleChange(evt) {
     const { target } = evt;
     const { name, value } = target;
@@ -73,7 +69,6 @@ function CrearNoticia() {
 
     setValues(newValues);
   }
-
   function handleTemaChange(evt) {
     const { value } = evt.target;
 
@@ -84,7 +79,6 @@ function CrearNoticia() {
 
     setValues(newValues);
   }
-
   return (
     <Permissions>
       <div className="contenedor-crear-noticia">
@@ -109,7 +103,6 @@ function CrearNoticia() {
                 value={values.titulo}
                 onChange={handleChange}
               />
-
               <label htmlFor="entradilla">Entradilla</label>
               <input
                 id="entradilla"
@@ -121,7 +114,6 @@ function CrearNoticia() {
                 value={values.entradilla}
                 onChange={handleChange}
               />
-
               <label htmlFor="tema">Tema</label>
               <select
                 defaultValue="seleccionarTema"
@@ -142,7 +134,6 @@ function CrearNoticia() {
                 <option value="Economía y negocios">Economía y negocios</option>
                 <option value="Otros">Otros</option>
               </select>
-
               <label htmlFor="texto">Texto</label>
               <textarea
                 id="texto"
@@ -153,12 +144,10 @@ function CrearNoticia() {
                 value={values.texto}
                 onChange={handleChange}
               />
-
               <FileUploadComponent
                 setSelectedFile={setSelectedFile}
                 selectedFile={selectedFile}
               />
-
               <button type="submit">Publicar</button>
             </fieldset>
             {error && (
@@ -166,7 +155,6 @@ function CrearNoticia() {
                 Por favor, completa todos los campos.
               </p>
             )}
-
             {!error && errorTema && (
               <p className="error-crear-noticia">Debes elegir un tema.</p>
             )}
@@ -176,4 +164,5 @@ function CrearNoticia() {
     </Permissions>
   );
 }
+
 export default CrearNoticia;

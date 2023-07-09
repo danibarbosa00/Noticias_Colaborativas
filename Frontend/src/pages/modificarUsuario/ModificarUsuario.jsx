@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import "./modificarUsuario.css";
 import { HeaderLog } from "../../components/header/HeaderLog";
 import swal from "sweetalert";
 import { modifyUserService } from "../../services/UserService";
@@ -19,6 +18,8 @@ import { FileUploadUser } from "../../components/shared/fileUpload/FileUploadUse
 import DeleteUsuario from "../../components/usuario/BorrarUsuario";
 import "./modificarUsuario.css";
 import { useForm } from "react-hook-form";
+
+import "./modificarUsuario.css";
 
 function ModificarUsuario() {
   const navigate = useNavigate();
@@ -41,7 +42,6 @@ function ModificarUsuario() {
   const [showPasswordFields, setShowPasswordFields] = useState(false);
   const [error, setError] = useState("");
   const [formError, setFormError] = useState(false);
-
   const handleCerrarSesion = () => {
     localStorage.removeItem("email");
     localStorage.removeItem("token");
@@ -52,7 +52,6 @@ function ModificarUsuario() {
     localStorage.removeItem("nickName");
     setUser(null);
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -68,7 +67,6 @@ function ModificarUsuario() {
       setFormError(true);
       return;
     }
-
     console.log("Sending...");
     const formData = new FormData();
     if (values.nombre !== "") {
@@ -94,7 +92,6 @@ function ModificarUsuario() {
     if (selectedFile) {
       formData.append("foto", selectedFile);
     }
-
     try {
       await modifyUserService(id, formData, user);
       handleCancelButtonEmail(true);
@@ -112,7 +109,6 @@ function ModificarUsuario() {
       setError(error.message);
     }
   };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues((prevValues) => ({
@@ -120,44 +116,36 @@ function ModificarUsuario() {
       [name]: value,
     }));
   };
-
   const handleClickButtonName = () => {
     setOpenButtonName(true);
   };
-
   const handleCancelButtonName = () => {
     setOpenButtonName(false);
     setValues((prevValues) => {
       return { ...prevValues, nombre: "" };
     });
   };
-
   const handleClickButtonEmail = () => {
     setOpenButtonEmail(true);
   };
-
   const handleCancelButtonEmail = () => {
     setOpenButtonEmail(false);
     setValues((prevValues) => {
       return { ...prevValues, email: "" };
     });
   };
-
   const handleClickButtonNickName = () => {
     setOpenButtonNickName(true);
   };
-
   const handleCancelButtonNickName = () => {
     setOpenButtonNickName(false);
     setValues((prevValues) => {
       return { ...prevValues, nickName: "" };
     });
   };
-
   const handleTogglePasswordFields = () => {
     setShowPasswordFields(!showPasswordFields);
   };
-
   return (
     <Permissions>
       <div className="contenedor-modificar-usuario">

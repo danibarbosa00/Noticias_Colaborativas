@@ -7,20 +7,13 @@ import {
   MIN_LENGTH_PASSWORD,
 } from "../../utils/constants";
 import { useForm } from "react-hook-form";
-import "./register.css";
 import { useState } from "react";
+
+import "./register.css";
 
 const Register = ({ handleRegisterToLogin }) => {
   const [error, setError] = useState(null);
-
-  const {
-    register,
-    handleSubmit,
-
-    reset,
-    watch,
-  } = useForm();
-
+  const { register, handleSubmit, reset, watch } = useForm();
   const handleRegister = async (data) => {
     try {
       await registerUserService(data);
@@ -40,7 +33,6 @@ const Register = ({ handleRegisterToLogin }) => {
       }
     }
   };
-
   const onSubmit = (data) => {
     const { password, confirmPassword } = data;
     if (password !== confirmPassword) {
@@ -48,11 +40,9 @@ const Register = ({ handleRegisterToLogin }) => {
     }
     handleRegister(data);
   };
-
   const password = watch("password");
   const confirmPassword = watch("confirmPassword");
   const passwordsMatch = password === confirmPassword;
-
   return (
     <div className="content-register">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -123,7 +113,6 @@ const Register = ({ handleRegisterToLogin }) => {
             })}
           />
         </div>
-
         {!passwordsMatch && (
           <p className="errores-register">Las contraseñas no coinciden</p>
         )}

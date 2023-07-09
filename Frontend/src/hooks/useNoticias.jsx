@@ -12,7 +12,6 @@ const useNoticias = () => {
   });
   const [loading, setLoading] = useState([false]);
   const [error, setError] = useState("");
-
   const getUrl = (type, subItem) => {
     const noticias = {
       ultimas: "/noticias",
@@ -36,11 +35,9 @@ const useNoticias = () => {
       setLoading(false);
     }
   };
-
   useEffect(() => {
     loadNoticias("ultimas");
   }, []);
-
   return {
     noticias,
     loading,
