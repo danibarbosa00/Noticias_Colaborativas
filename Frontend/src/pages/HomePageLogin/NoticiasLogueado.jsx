@@ -19,7 +19,6 @@ function NoticiasLogueado() {
     currentPage1,
     setCurrentPage1,
   } = useNoticias();
-
   const misNoticias = noticias.noticias;
   const noticiasPerPage = 5;
   const indexOfLastNoticia1 = (currentPage1 + 1) * noticiasPerPage;
@@ -29,18 +28,15 @@ function NoticiasLogueado() {
     indexOfLastNoticia1
   );
   const pageCount = Math.ceil(misNoticias.length / noticiasPerPage);
-
   const handlePageChange1 = (selected) => {
     setCurrentPage1(selected.selected);
   };
   if (!noticias.noticias && loading) {
     return <p>Cargando noticias...</p>;
   }
-
   if (error) {
     return <p>{error}</p>;
   }
-
   return (
     <Permissions>
       <div className="contenedor-homePageLog">
@@ -63,7 +59,6 @@ function NoticiasLogueado() {
               />
             </li>
           </ul>
-
           <div className="temas-tiempo">
             <Clima />
             <section className="contenedor-temas">
@@ -113,7 +108,6 @@ function NoticiasLogueado() {
               />
             </section>
           </div>
-
           <div className="noticias-acciones">
             <ul className="ulAcciones">
               <li>
@@ -150,7 +144,6 @@ function NoticiasLogueado() {
               loadNoticias={loadNoticias}
             />
           </section>
-
           <ReactPaginate
             className="paginate"
             nextLabel={"Siguiente"}

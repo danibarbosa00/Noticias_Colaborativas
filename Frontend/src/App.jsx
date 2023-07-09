@@ -9,14 +9,15 @@ import CrearNoticia from "./pages/crearNoticia/CrearNoticia";
 import ModificarNoticia from "./pages/modificarNoticia/ModificarNoticia";
 import MisNoticia from "./pages/misNoticias/MisNoticias";
 import MisComentarios from "./pages/misComentarios/MisComentarios";
-
-import "./App.css";
-import "./pages/HomePage/noticias.css";
-import "./pages/HomePageLogin/noticiasLogueado.css";
 import ModificarUsuario from "./pages/modificarUsuario/ModificarUsuario";
 import { AuthProvider } from "./context/authContext";
 import { PerfilUsuarioNickName } from "../src/pages/perfilUsuario/PerfilUsuario";
 import { PerfilUsuarioNombre } from "../src/pages/perfilUsuario/PerfilUsuario";
+
+import "./App.css";
+import "./pages/HomePage/noticias.css";
+import "./pages/HomePageLogin/noticiasLogueado.css";
+
 function App() {
   return (
     <div className="App">

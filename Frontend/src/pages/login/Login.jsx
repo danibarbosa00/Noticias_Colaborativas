@@ -7,8 +7,9 @@ import {
   MAX_LENGTH_PASSWORD,
   MIN_LENGTH_PASSWORD,
 } from "../../utils/constants";
-import "./login.css";
 import { Context } from "../../context/authContext";
+
+import "./login.css";
 
 const Login = () => {
   const {
@@ -19,19 +20,15 @@ const Login = () => {
   const navigate = useNavigate();
   const [loginError, setLoginError] = useState("");
   const { setUser } = useContext(Context);
-
   const handleLogin = async (data) => {
     try {
       const response = await loginUserService(data);
-
       const token = response.data.token;
-
       const nombre = response.data.usuario.nombre;
       const id = response.data.usuario.id;
       const fotoUsuario = response.data.usuario.foto;
       const biografia = response.data.usuario.biografia;
       const nickName = response.data.usuario.nickName;
-
       localStorage.setItem("fotoUsuario", JSON.stringify(fotoUsuario));
       localStorage.setItem("id", JSON.stringify(id));
       localStorage.setItem("nombre", JSON.stringify(nombre));
@@ -54,7 +51,6 @@ const Login = () => {
       setLoginError("Las credenciales no coinciden");
     }
   };
-
   return (
     <div className="content-login">
       <form onSubmit={handleSubmit(handleLogin)}>

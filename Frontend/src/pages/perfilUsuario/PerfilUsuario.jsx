@@ -2,8 +2,10 @@ import { Link, useParams } from "react-router-dom";
 import { useDatosUsuarioNickname } from "../../hooks/useDatosUsuarioNickName";
 import { useDatosUsuarioNombre } from "../../hooks/useDatosUsuarioNombre";
 import { HeaderLog } from "../../components/header/HeaderLog";
-import "./perfilUsuario.css";
 import { Permissions } from "../../components/permisions/Permisions";
+
+import "./perfilUsuario.css";
+
 export function PerfilUsuarioNombre() {
   const params = useParams();
   const nombre = params.nombre;

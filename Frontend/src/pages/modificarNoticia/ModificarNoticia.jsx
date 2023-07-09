@@ -1,13 +1,11 @@
 import React, { useContext, useState } from "react";
 import swal from "sweetalert";
-import "./modificarNoticia.css";
 import { HeaderLog } from "../../components/header/HeaderLog";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import FileUploadComponent from "../../components/shared/fileUpload/FileUpload";
 import { modificarNoticia } from "../../services/NoticiasService";
 import { Permissions } from "../../components/permisions/Permisions";
 import { Context } from "../../context/authContext";
-
 import {
   MAX_LENGTH_ENTRADILLA,
   MAX_LENGTH_TEXTO,
@@ -15,6 +13,8 @@ import {
   MIN_LENGTH_ENTRADILLA,
   MIN_LENGTH_TITULO,
 } from "../../utils/constants";
+
+import "./modificarNoticia.css";
 
 function ModificarNoticia() {
   const navigate = useNavigate();
@@ -26,10 +26,8 @@ function ModificarNoticia() {
     texto: "",
     foto: "",
   });
-
   const params = useParams();
   const id_noticia = params.id;
-
   const [selectedFile, setSelectedFile] = React.useState(null);
   const [error, setError] = useState(false);
   const handleSubmit = async (evt) => {
@@ -46,7 +44,6 @@ function ModificarNoticia() {
     } else {
       setError(false);
     }
-
     const formData = new FormData();
     if (values.titulo !== "") {
       formData.append("titulo", values.titulo);
@@ -63,7 +60,6 @@ function ModificarNoticia() {
     if (selectedFile) {
       formData.append("foto", selectedFile);
     }
-
     await modificarNoticia(formData, id_noticia, user);
     swal({
       title: "Has modificado tu noticia con éxito!",
@@ -94,7 +90,6 @@ function ModificarNoticia() {
 
     setValues(newValues);
   }
-
   return (
     <Permissions>
       <div className="contenedor-modificar-noticia">
@@ -152,7 +147,6 @@ function ModificarNoticia() {
                 <option value="Economía y negocios">Economía y negocios</option>
                 <option value="Otros">Otros</option>
               </select>
-
               <label htmlFor="texto">Texto</label>
               <textarea
                 id="texto"
@@ -163,12 +157,10 @@ function ModificarNoticia() {
                 value={values.texto}
                 onChange={handleChange}
               />
-
               <FileUploadComponent
                 setSelectedFile={setSelectedFile}
                 selectedFile={selectedFile}
               />
-
               <button type="submit">Modificar</button>
             </fieldset>
             {error && (

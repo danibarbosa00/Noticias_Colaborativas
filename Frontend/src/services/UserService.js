@@ -28,12 +28,9 @@ export async function loginUserService({ email, password }) {
 
 export async function registerUserService(formData) {
   const { nombre, email, password, confirmPassword } = formData;
-
-  // Verificar si las contraseñas coinciden
   if (password !== confirmPassword) {
     throw new Error("Las contraseñas no coinciden");
   }
-
   try {
     const response = await axios.post(
       `${import.meta.env.VITE_BACKEND_URL}/usuario`,

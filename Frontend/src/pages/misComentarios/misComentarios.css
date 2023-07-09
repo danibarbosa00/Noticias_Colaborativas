@@ -10,7 +10,6 @@
   align-content: center;
   justify-content: center;
   max-width: 100%;
-
   position: relative;
   background-image: url("/dark-bg.jpg");
   background-size: contain;
@@ -98,16 +97,19 @@
   text-align: center;
   font-size: 1.2em;
 }
+
 @media (min-width: 600px) {
   .mis-comentarios > h3 {
     font-size: 1.5rem;
   }
 }
+
 @media (min-width: 495px) {
   .body-mis-comentarios {
     min-height: 75vh;
   }
 }
+
 @media (min-width: 900px) {
   .mis-comentarios > h3 {
     font-size: 2rem;

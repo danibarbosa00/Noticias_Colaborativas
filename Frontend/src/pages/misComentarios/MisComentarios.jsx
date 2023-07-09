@@ -10,12 +10,9 @@ import "./misComentarios.css";
 
 function MisComentarios() {
   const { user } = useContext(Context);
-
   const { misComentarios, loadingMisComentarios, errorMisComentarios } =
     useMisComentarios(user, user?.id);
-
   if (loadingMisComentarios) return <p>Cargando comentarios...</p>;
-
   return (
     <Permissions>
       <div className="contenedor-mis-comentarios">
