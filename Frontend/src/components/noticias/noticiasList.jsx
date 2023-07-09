@@ -35,7 +35,8 @@ const NoticiasList = ({ noticias, loadNoticias, type }) => {
   return noticias.length !== 0 ? (
     <div className="divContenedorNoticias">
       <h3>
-        {titulos[type.type]} {type.subItem || ""}
+        {titulos[type.type]}{" "}
+        {(type.subItem && `Noticias de ${type.subItem}`) || ""}
         {user ? (
           type.type === "nickName" ? (
             <button className="enlace-usuario" onClick={handleClickNickName}>

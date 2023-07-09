@@ -194,6 +194,7 @@ h3 {
 .contenedor-noticias > div {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .contenedor-noticias .no-hay-noticias-tema {
