@@ -1,4 +1,4 @@
-import { NavLink, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDatosUsuarioNickname } from "../../hooks/useDatosUsuarioNickName";
 import { useDatosUsuarioNombre } from "../../hooks/useDatosUsuarioNombre";
 import { HeaderLog } from "../../components/header/HeaderLog";
@@ -17,27 +17,41 @@ export function PerfilUsuarioNombre() {
   }
   return (
     <Permissions>
-      <div>
+      <div className="contenedor-perfilUsuario">
         <HeaderLog />
-        <div className="contenedor-btnPerfilUsuario">
-          <NavLink to={"/noticias/login"}>
-            <button>Volver a noticias</button>
-          </NavLink>
+        <div className="return-button">
+          <Link to="/noticias/login">
+            <button type="submit">Volver al inicio</button>
+          </Link>
         </div>
-        <img
-          src={
-            datosUsuarioNombre.foto === "fotobase.jpg"
-              ? `/fotobase.jpg`
-              : `${import.meta.env.VITE_BACKEND_URL}/usuarios/${
-                  datosUsuarioNombre.foto
-                }`
-          }
-          alt="foto perfil"
-        />
-        <p>Nombre: {datosUsuarioNombre.nombre}</p>
-        {datosUsuarioNombre.biografia ? (
-          <p>Biografía: {datosUsuarioNombre.biografia}</p>
-        ) : null}
+        <div className="perfilUsuario">
+          <div className="perfilUsuarioDos">
+            <h3>Perfil de Usuario</h3>
+            <div className="contenedor-infoPerfilUsuario">
+              <p className="datoUsuario">
+                <span>Nombre: </span> {datosUsuarioNombre.nombre}
+              </p>
+              {datosUsuarioNombre.biografia ? (
+                <p className="datoUsuario">
+                  <span>Biografía: </span> {datosUsuarioNombre.biografia}
+                </p>
+              ) : null}
+            </div>
+            <div className="contenedor-foto-perfilUsuario">
+              <h4>Foto de usuario</h4>
+              <img
+                src={
+                  datosUsuarioNombre.foto === "fotobase.jpg"
+                    ? `/fotobase.jpg`
+                    : `${import.meta.env.VITE_BACKEND_URL}/usuarios/${
+                        datosUsuarioNombre.foto
+                      }`
+                }
+                alt="foto perfil"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </Permissions>
   );
@@ -60,25 +74,31 @@ export function PerfilUsuarioNickName() {
     <Permissions>
       <div className="contenedor-perfilUsuario">
         <HeaderLog />
-        <div className="contenedor-btnPerfilUsuario">
-          <NavLink to={"/noticias/login"}>
-            <button>Volver a noticias</button>
-          </NavLink>
+        <div className="return-button">
+          <Link to="/noticias/login">
+            <button type="submit">Volver al inicio</button>
+          </Link>
         </div>
         <div className="perfilUsuario">
           <div className="perfilUsuarioDos">
+            <h3>Perfil de Usuario</h3>
             <div className="contenedor-infoPerfilUsuario">
-              <p className="datoUsuario">{datosUsuarioNickName.nickName}</p>
+              {
+                <p className="datoUsuario">
+                  <span>Nickname: </span> {datosUsuarioNickName.nickName}
+                </p>
+              }
               <p className="datoUsuario">
-                Nombre: {datosUsuarioNickName.nombre}
+                <span>Nombre: </span> {datosUsuarioNickName.nombre}
               </p>
               {datosUsuarioNickName.biografia ? (
                 <p className="datoUsuario">
-                  Biografía: {datosUsuarioNickName.biografia}
+                  <span>Biografía: </span> {datosUsuarioNickName.biografia}
                 </p>
               ) : null}
             </div>
             <div className="contenedor-foto-perfilUsuario">
+              <h4>Foto de usuario</h4>
               <img
                 src={
                   datosUsuarioNickName.foto === "fotobase.jpg"
