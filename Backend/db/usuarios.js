@@ -161,6 +161,7 @@ const buscarUsuarioPorNickName = async (nickName) => {
     if (connection) connection.release();
   }
 };
+
 const buscarUsuarioPorNombre = async (nombre) => {
   let connection;
   try {

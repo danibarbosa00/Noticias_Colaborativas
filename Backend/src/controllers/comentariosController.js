@@ -9,7 +9,6 @@ const { buscarNoticiaPorId } = require("../../db/noticias");
 const { generateError } = require("../../helpers");
 
 const schemaNuevoComentario = joi.string().min(1).max(1000).required();
-
 const nuevoComentarioNoticia = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -54,6 +53,7 @@ const deleteComentariosUsuario = async (req, res, next) => {
     next(error);
   }
 };
+
 const schemaUsuarioId = joi.number().positive().required();
 const getMisComentarios = async (req, res, next) => {
   try {

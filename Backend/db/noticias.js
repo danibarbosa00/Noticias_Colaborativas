@@ -112,6 +112,7 @@ const buscarNoticiasPorIdUsuario = async (id) => {
     if (connection) connection.release();
   }
 };
+
 const crearNoticia = async (usuarioId, titulo, entradilla, texto, tema) => {
   let connection;
   try {
@@ -181,6 +182,7 @@ const modificarNoticia = async (foto, id, body) => {
     if (connection) connection.release();
   }
 };
+
 const modificarNoticiaSinFoto = async (id, body) => {
   let connection;
   try {
@@ -203,7 +205,6 @@ const modificarNoticiaSinFoto = async (id, body) => {
       const sql5 = "update noticias set tema=? where id =?";
       await connection.query(sql5, [tema, id]);
     }
-
     return true;
   } finally {
     if (connection) connection.release();

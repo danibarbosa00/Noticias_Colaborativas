@@ -128,6 +128,7 @@ const buscarMisComentarios = async (id) => {
     if (connection) connection.release();
   }
 };
+
 module.exports = {
   crearComentario,
   buscarComentariosPorIdNoticia,

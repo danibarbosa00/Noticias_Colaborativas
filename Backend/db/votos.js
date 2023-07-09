@@ -74,8 +74,6 @@ const borrarVotosNoticia = async (noticia_id) => {
   }
 };
 
-/////////////////////////////////////////////////////////////////////////////////
-
 const agregarVoto = async (usuario_id, noticia_id, estado) => {
   let connection;
 
