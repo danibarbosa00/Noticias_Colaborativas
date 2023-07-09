@@ -38,7 +38,6 @@ button.pulgarAbajo:active {
   box-shadow: 2px 2px 3px inset rgba(0, 0, 0, 0.3);
 }
 
-/* Desplegable perfil y cerrar sesión */
 .dropdown {
   list-style: none;
   position: absolute;
@@ -51,16 +50,19 @@ button.pulgarAbajo:active {
   left: -3px;
   padding: 65px 5px 5px 5px;
 }
+
 .user-icon {
   cursor: pointer;
   z-index: 1;
 }
+
 .dropdown a {
   padding: 0px;
   margin: 0px;
   padding: 6px 10px;
   display: block;
 }
+
 .perfil {
   padding: 5px 10px;
   background-color: #374491;
@@ -71,6 +73,7 @@ button.pulgarAbajo:active {
   cursor: pointer;
   transition: background-color 0.7s ease;
 }
+
 .sesion {
   padding: 5px 10px;
   background-color: #374491;
@@ -81,11 +84,13 @@ button.pulgarAbajo:active {
   cursor: pointer;
   transition: background-color 0.7s ease;
 }
+
 :hover.perfil {
   background-color: #71ce3b;
   border-radius: 5px;
   border: 2px solid #374491;
 }
+
 :hover.sesion {
   background-color: #cf3737;
   border-radius: 5px;

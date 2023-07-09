@@ -229,10 +229,7 @@ h3 {
   border-radius: 5px;
   list-style: none;
 }
-.liNoticias {
-  display: flex;
-  align-items: center;
-}
+
 .liNoticiasValoradas {
   display: flex;
   align-items: center;
