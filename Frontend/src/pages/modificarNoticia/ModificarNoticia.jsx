@@ -15,10 +15,12 @@ import {
 } from "../../utils/constants";
 
 import "./modificarNoticia.css";
+import useNoticiaId from "../../hooks/useNoticiaId";
 
 function ModificarNoticia() {
   const navigate = useNavigate();
   const { user } = useContext(Context);
+
   const [values, setValues] = React.useState({
     titulo: "",
     entradilla: "",
@@ -28,8 +30,16 @@ function ModificarNoticia() {
   });
   const params = useParams();
   const id_noticia = params.id;
+  const { NoticiaId } = useNoticiaId(id_noticia);
+  const tituloNoticia = NoticiaId?.noticia?.titulo || "";
+  const entradillaNoticia = NoticiaId?.noticia?.entradilla || "";
+  const textoNoticia = NoticiaId?.noticia?.texto || "";
+  const temaNoticia = NoticiaId?.noticia?.tema || "";
+  console.log(temaNoticia);
+
   const [selectedFile, setSelectedFile] = React.useState(null);
   const [error, setError] = useState(false);
+
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     if (
@@ -109,7 +119,7 @@ function ModificarNoticia() {
                 id="titulo"
                 minLength={MIN_LENGTH_TITULO}
                 maxLength={MAX_LENGTH_TITULO}
-                placeholder="Nuevo título"
+                placeholder={tituloNoticia}
                 name="titulo"
                 type="text"
                 value={values.titulo}
@@ -118,7 +128,7 @@ function ModificarNoticia() {
               <label htmlFor="entradilla">Entradilla</label>
               <input
                 id="entradilla"
-                placeholder="Nueva entradilla"
+                placeholder={entradillaNoticia}
                 minLength={MIN_LENGTH_ENTRADILLA}
                 maxLength={MAX_LENGTH_ENTRADILLA}
                 name="entradilla"
@@ -130,11 +140,11 @@ function ModificarNoticia() {
               <label htmlFor="tema">Tema</label>
               <select
                 name="tema"
-                defaultValue="seleccionarTema"
+                defaultValue={temaNoticia}
                 onChange={handleTemaChange}
               >
-                <option value="seleccionarTema" disabled>
-                  Selecciona el tema
+                <option value={temaNoticia} disabled>
+                  Actual: {temaNoticia}
                 </option>
                 <option value="Deportes">Deportes</option>
                 <option value="Política">Política</option>
@@ -152,7 +162,7 @@ function ModificarNoticia() {
                 id="texto"
                 name="texto"
                 type="text"
-                placeholder="Nuevo texto"
+                placeholder={textoNoticia}
                 maxLength={MAX_LENGTH_TEXTO}
                 value={values.texto}
                 onChange={handleChange}

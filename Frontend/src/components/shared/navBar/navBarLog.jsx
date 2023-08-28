@@ -19,6 +19,7 @@ export function NavBarLog() {
     localStorage.removeItem("id");
     localStorage.removeItem("biografia");
     localStorage.removeItem("nickName");
+    localStorage.removeItem("password");
     setUser(null);
   };
   return (

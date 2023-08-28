@@ -16,8 +16,8 @@ export async function getAllNoticiasStandard(url) {
   return noticias;
 }
 
-export function getNoticiasId() {
-  return axios.get(`${import.meta.env.VITE_BACKEND_URL}/noticias`);
+export function getNoticiaId(id) {
+  return axios.get(`${import.meta.env.VITE_BACKEND_URL}/noticias/` + id);
 }
 
 export async function getMisNoticias(user) {

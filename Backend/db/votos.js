@@ -59,6 +59,36 @@ const buscarVotoyNoticiaIdNoticiaIdUsuario = async (noticia_id, usuario_id) => {
     if (connection) connection.release();
   }
 };
+const buscarVotoIdUsuario = async (usuario_id) => {
+  let connection;
+  try {
+    connection = await getConnection();
+    const [voto] = await connection.query(
+      `select id_voto from votos left join noticias on votos.id_Noticia = noticias.id where votos.id_Usuario = ?`,
+      [usuario_id]
+    );
+
+    return voto;
+  } finally {
+    if (connection) connection.release();
+  }
+};
+
+const borrarVotosPorUsuarioId = async (usuario_id) => {
+  let connection;
+  try {
+    connection = await getConnection();
+    await connection.query(
+      `delete from votos where votos.id_Usuario = ?
+ `,
+      [usuario_id]
+    );
+
+    return true;
+  } finally {
+    if (connection) connection.release();
+  }
+};
 
 const borrarVotosNoticia = async (noticia_id) => {
   let connection;
@@ -169,4 +199,6 @@ module.exports = {
   restarPuntosPositivos,
   sumarPuntosNegativos,
   restarPuntosNegativos,
+  buscarVotoIdUsuario,
+  borrarVotosPorUsuarioId,
 };

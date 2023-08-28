@@ -45,6 +45,13 @@ html::-webkit-scrollbar-thumb {
   border-radius: 3px;
 }
 
+input {
+  padding: 7px;
+}
+
+textarea {
+  padding: 7px;
+}
 /* Para navegadores como Firefox */
 html,
 .contenedor-temas {

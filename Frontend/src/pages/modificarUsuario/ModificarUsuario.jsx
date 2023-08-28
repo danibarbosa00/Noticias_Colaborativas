@@ -25,7 +25,8 @@ function ModificarUsuario() {
   const navigate = useNavigate();
   const { register } = useForm();
   const { user, setUser } = useContext(Context);
-  const { id, nombre, nickName, email, biografia } = user;
+  const { id, nombre, nickName, email, biografia, password } = user;
+  console.log(password);
   const [values, setValues] = useState({
     nombre: "",
     nickName: "",
@@ -50,6 +51,7 @@ function ModificarUsuario() {
     localStorage.removeItem("id");
     localStorage.removeItem("biografia");
     localStorage.removeItem("nickName");
+    localStorage.removeItem("password");
     setUser(null);
   };
   const handleSubmit = async (e) => {

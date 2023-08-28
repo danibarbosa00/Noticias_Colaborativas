@@ -30,7 +30,7 @@ function MisNoticias() {
             ) : (
               <div className="sinNoticias">
                 <p className="no-hay-misNoticias">
-                  Anímate a subir una noticia.{" "}
+                  Anímate a subir una noticia.
                   <Link to="/noticias/login/crearNoticia">
                     <button className="crear-noticia">Crear tu noticia</button>
                   </Link>

@@ -3,40 +3,45 @@ import { deleteUserService } from "../../services/UserService";
 import { Context } from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
+import bcrypt from "bcryptjs";
+
 function DeleteUsuario() {
   const navigate = useNavigate();
   const { user, setUser } = useContext(Context);
-  const { email, id } = user;
-
-  const [deleteUserEmail, setDeleteUserEmail] = useState("");
+  const { password, email, id } = user;
+  const [deleteUserPassword, setDeleteUserPassword] = useState("");
   const [error, setError] = useState("");
   const [openButton, setOpenButton] = useState(false);
+
+  console.log(password, deleteUserPassword);
+
   const handleCerrarSesion = () => {
-    localStorage.removeItem("email");
-    localStorage.removeItem("token");
-    localStorage.removeItem("nombre");
-    localStorage.removeItem("fotoUsuario");
-    localStorage.removeItem("id");
-    localStorage.removeItem("biografia");
-    localStorage.removeItem("nickName");
+    localStorage.clear();
     setUser(null);
   };
+
   const handleDeleteUserSubmit = async () => {
-    if (deleteUserEmail !== email) {
-      setError("El correo electrónico no coincide");
-    } else
-      try {
+    try {
+      const isPasswordValid = await bcrypt.compare(
+        deleteUserPassword,
+        password
+      );
+      console.log(isPasswordValid);
+      if (isPasswordValid === true) {
         await deleteUserService(id, user);
         handleCerrarSesion();
         swal({
           title: `Se ha borrado la cuenta ${email} satisfactoriamente!`,
-
           icon: "success",
         });
         navigate("/");
-      } catch (error) {
-        console.log(error);
+      } else {
+        setError("La contraseña no coincide.");
       }
+    } catch (error) {
+      setError("Ha ocurrido un error al verificar la contraseña.");
+      console.log(error);
+    }
   };
 
   const handleClickButton = () => {
@@ -45,7 +50,7 @@ function DeleteUsuario() {
 
   const handleCancelButton = () => {
     setOpenButton(false);
-    setDeleteUserEmail("");
+    setDeleteUserPassword("");
     setError("");
   };
 
@@ -61,17 +66,17 @@ function DeleteUsuario() {
         </button>
       ) : (
         <div className="div-delete-usuario">
-          <label htmlFor="deleteUserEmail">
-            Verifica tu correo para eliminar tu cuenta
+          <label htmlFor="deleteUserPassword">
+            Introduce tu contraseña para eliminar tu cuenta
           </label>
           <div className="verificar-correo">
             <input
-              id="deleteUserEmail"
-              name="deleteUserEmail"
-              type="email"
-              value={deleteUserEmail}
-              onChange={(e) => setDeleteUserEmail(e.target.value)}
-              placeholder="Escribe tu correo electrónico"
+              id="deleteUserPassword"
+              name="deleteUserPassword"
+              type="password"
+              value={deleteUserPassword}
+              onChange={(e) => setDeleteUserPassword(e.target.value)}
+              placeholder="Escribe tu contraseña"
             />
             {error && <p className="error">{error}</p>}
             <button
