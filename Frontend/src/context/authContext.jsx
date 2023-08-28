@@ -8,11 +8,12 @@ const nombre = JSON.parse(localStorage.getItem("nombre"));
 const fotoUsuario = JSON.parse(localStorage.getItem("fotoUsuario"));
 const biografia = JSON.parse(localStorage.getItem("biografia"));
 const nickName = JSON.parse(localStorage.getItem("nickName"));
+const password = JSON.parse(localStorage.getItem("password"));
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(
     token && email && id
-      ? { token, email, id, nombre, fotoUsuario, biografia, nickName }
+      ? { token, email, id, nombre, fotoUsuario, biografia, nickName, password }
       : null
   );
   return (

@@ -26,7 +26,11 @@ const {
   buscarNoticiasPorIdUsuario,
   borrarNoticiaId,
 } = require("../../db/noticias");
-const { borrarVotosNoticia } = require("../../db/votos");
+const {
+  borrarVotosNoticia,
+  buscarVotoIdUsuario,
+  borrarVotosPorUsuarioId,
+} = require("../../db/votos");
 
 const schema = joi.object().keys({
   nombre: joi.string().min(2).max(20).required(),
@@ -197,6 +201,11 @@ const deleteUsuario = async (req, res, next) => {
         await borrarComentarioConIdComentario(comentario.id);
       }
     }
+    const votosUsuario = await buscarVotoIdUsuario(id);
+    if (votosUsuario.length > 0) {
+      await borrarVotosPorUsuarioId(id);
+    }
+
     const noticias = await buscarNoticiasPorIdUsuario(id);
     if (noticias && noticias.length > 0) {
       for (const noticia of noticias) {

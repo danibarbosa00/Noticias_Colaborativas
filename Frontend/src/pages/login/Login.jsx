@@ -29,6 +29,7 @@ const Login = () => {
       const fotoUsuario = response.data.usuario.foto;
       const biografia = response.data.usuario.biografia;
       const nickName = response.data.usuario.nickName;
+      const password = response.data.usuario.password;
       localStorage.setItem("fotoUsuario", JSON.stringify(fotoUsuario));
       localStorage.setItem("id", JSON.stringify(id));
       localStorage.setItem("nombre", JSON.stringify(nombre));
@@ -36,6 +37,8 @@ const Login = () => {
       localStorage.setItem("token", JSON.stringify(token));
       localStorage.setItem("biografia", JSON.stringify(biografia));
       localStorage.setItem("nickName", JSON.stringify(nickName));
+      localStorage.setItem("password", JSON.stringify(password));
+
       setUser({
         nombre,
         id,
@@ -44,6 +47,7 @@ const Login = () => {
         biografia,
         fotoUsuario,
         nickName,
+        password,
       });
       navigate("/noticias/login");
     } catch (error) {
