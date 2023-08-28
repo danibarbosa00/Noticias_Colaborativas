@@ -3,6 +3,7 @@ import ReactPaginate from "react-paginate";
 import { MiComentario } from "./MiComentario";
 import { Context } from "../../context/authContext";
 import { deleteMisComentarios } from "../../services/ComentariosService";
+import swal from "sweetalert";
 
 const MisComentariosList = ({ misComentarios }) => {
   const { user } = useContext(Context);
@@ -12,6 +13,11 @@ const MisComentariosList = ({ misComentarios }) => {
     try {
       await deleteMisComentarios(id, user);
       setComentariosBorrados([...comentariosBorrados, id]);
+      swal({
+        title: `Se ha borrado tu comentario satisfactoriamente!`,
+
+        icon: "success",
+      });
     } catch (error) {
       console.error(error.message);
     }

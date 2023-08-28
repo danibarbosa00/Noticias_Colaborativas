@@ -4,6 +4,7 @@ import { MiNoticia } from "./MiNoticia";
 import { Context } from "../../context/authContext";
 import { deleteMisNoticias } from "../../services/NoticiasService";
 import ReactPaginate from "react-paginate";
+import swal from "sweetalert";
 
 import "./misNoticias.css";
 
@@ -15,6 +16,11 @@ const MisNoticiasList = ({ misNoticias }) => {
     try {
       await deleteMisNoticias(id, user);
       setNoticiasBorradas([...noticiasBorradas, id]);
+      swal({
+        title: `Se ha borrado la noticia ${id} satisfactoriamente!`,
+
+        icon: "success",
+      });
     } catch (error) {
       console.error(error.message);
     }

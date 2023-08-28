@@ -17,11 +17,14 @@ const NoticiasList = ({ noticias, loadNoticias, type }) => {
   const { user } = useContext(Context);
   const navigate = useNavigate();
   const [selectedNoticiaId, setSelectedNoticiaId] = useState(null);
+  const [iconoDesplegable, setIconoDesplegable] = useState("+");
   const handleClick = (noticiaId) => {
     if (selectedNoticiaId === noticiaId) {
       setSelectedNoticiaId(null);
+      setIconoDesplegable("+");
     } else {
       setSelectedNoticiaId(noticiaId);
+      setIconoDesplegable("-");
     }
   };
   const handleClickNombre = () => {
@@ -93,7 +96,7 @@ const NoticiasList = ({ noticias, loadNoticias, type }) => {
                   className="desplegableNoticias"
                   onClick={() => handleClick(noticia.noticia.id)}
                 >
-                  +
+                  {iconoDesplegable}
                 </button>
               </div>
               {selectedNoticiaId === noticia.noticia.id ? (

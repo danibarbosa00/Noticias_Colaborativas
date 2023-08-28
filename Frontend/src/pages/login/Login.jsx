@@ -52,46 +52,42 @@ const Login = () => {
     }
   };
   return (
-    <div className="content-login">
-      <form onSubmit={handleSubmit(handleLogin)}>
-        <div className="form-group">
-          <label className="labelLogin" htmlFor="email">
-            Correo electrónico
-          </label>
-          <input
-            className="inputLogin"
-            type="email"
-            id="email"
-            {...register("email", { required: true, pattern: EMAIL_REGEX })}
-          />
-          {errors.email && (
-            <p className="error-login">Escribe el email completo</p>
-          )}
-        </div>
-        <div className="form-group">
-          <label className="labelLogin" htmlFor="password">
-            Contraseña
-          </label>
-          <input
-            className="inputLogin"
-            type="password"
-            id="password"
-            {...register("password", {
-              required: true,
-              minLength: MIN_LENGTH_PASSWORD,
-              maxLength: MAX_LENGTH_PASSWORD,
-            })}
-          />
-          {errors.password && (
-            <p className="error-login">Contraseña inválida</p>
-          )}
-        </div>
-        <button className="logueate" type="submit">
-          Iniciar sesión
-        </button>
-        {loginError && <p className="error-login">{loginError}</p>}
-      </form>
-    </div>
+    <form className="form-login" onSubmit={handleSubmit(handleLogin)}>
+      <div className="form-group">
+        <label className="labelLogin" htmlFor="email">
+          Correo electrónico
+        </label>
+        <input
+          className="inputLogin"
+          type="email"
+          id="email"
+          {...register("email", { required: true, pattern: EMAIL_REGEX })}
+        />
+        {errors.email && (
+          <p className="error-login">Escribe el email completo</p>
+        )}
+      </div>
+      <div className="form-group">
+        <label className="labelLogin" htmlFor="password">
+          Contraseña
+        </label>
+        <input
+          className="inputLogin"
+          type="password"
+          id="password"
+          {...register("password", {
+            required: true,
+            minLength: MIN_LENGTH_PASSWORD,
+            maxLength: MAX_LENGTH_PASSWORD,
+          })}
+        />
+        {errors.password && <p className="error-login">Contraseña inválida</p>}
+      </div>
+      <button className="logueate" type="submit">
+        Iniciar sesión
+      </button>
+      {loginError && <p className="error-login">{loginError}</p>}
+    </form>
   );
 };
 
