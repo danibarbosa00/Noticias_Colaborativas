@@ -11,7 +11,7 @@ import {
 } from "../../services/NoticiasService";
 import useVotosNoticia from "../../hooks/useVotosNoticia";
 
-export const Noticia = ({ noticia, loadNoticias }) => {
+export const Noticia = ({ noticia }) => {
   const { user } = useContext(Context);
   const [comentarios, setComentarios] = useState([]);
 
@@ -64,17 +64,14 @@ export const Noticia = ({ noticia, loadNoticias }) => {
   };
 
   useEffect(() => {
-    // Cargar los comentarios iniciales
     setComentarios(noticia.comentarios);
   }, [noticia.comentarios]);
 
   const handleComentarioSubmit = (comentario) => {
-    // Agregar el nuevo comentario a la lista
     const nuevoComentario = {
       comentario: comentario,
     };
     setComentarios([nuevoComentario, ...comentarios]);
-    loadNoticias();
   };
 
   const handleInputClick = (event) => {

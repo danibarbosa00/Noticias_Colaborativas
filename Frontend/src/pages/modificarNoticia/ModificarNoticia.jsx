@@ -35,7 +35,6 @@ function ModificarNoticia() {
   const entradillaNoticia = NoticiaId?.noticia?.entradilla || "";
   const textoNoticia = NoticiaId?.noticia?.texto || "";
   const temaNoticia = NoticiaId?.noticia?.tema || "";
-  console.log(temaNoticia);
 
   const [selectedFile, setSelectedFile] = React.useState(null);
   const [error, setError] = useState(false);

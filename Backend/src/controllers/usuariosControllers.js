@@ -30,6 +30,8 @@ const {
   borrarVotosNoticia,
   buscarVotoIdUsuario,
   borrarVotosPorUsuarioId,
+  restarPuntosPositivos,
+  restarPuntosNegativos,
 } = require("../../db/votos");
 
 const schema = joi.object().keys({
@@ -202,10 +204,17 @@ const deleteUsuario = async (req, res, next) => {
       }
     }
     const votosUsuario = await buscarVotoIdUsuario(id);
+    console.log(votosUsuario, "VOTOS USUARIO");
     if (votosUsuario.length > 0) {
+      for (const votoUsuario of votosUsuario) {
+        if (votoUsuario.estado === 1) {
+          console.log(votoUsuario, "voto usuario2");
+          console.log(votoUsuario.id_Noticia, "id noticia");
+          await restarPuntosPositivos(votoUsuario.id_Noticia);
+        } else await restarPuntosNegativos(votoUsuario.id_Noticia);
+      }
       await borrarVotosPorUsuarioId(id);
     }
-
     const noticias = await buscarNoticiasPorIdUsuario(id);
     if (noticias && noticias.length > 0) {
       for (const noticia of noticias) {

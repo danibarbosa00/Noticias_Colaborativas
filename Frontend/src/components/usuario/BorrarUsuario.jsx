@@ -13,8 +13,6 @@ function DeleteUsuario() {
   const [error, setError] = useState("");
   const [openButton, setOpenButton] = useState(false);
 
-  console.log(password, deleteUserPassword);
-
   const handleCerrarSesion = () => {
     localStorage.clear();
     setUser(null);
@@ -26,7 +24,6 @@ function DeleteUsuario() {
         deleteUserPassword,
         password
       );
-      console.log(isPasswordValid);
       if (isPasswordValid === true) {
         await deleteUserService(id, user);
         handleCerrarSesion();

@@ -64,7 +64,7 @@ const buscarVotoIdUsuario = async (usuario_id) => {
   try {
     connection = await getConnection();
     const [voto] = await connection.query(
-      `select id_voto from votos left join noticias on votos.id_Noticia = noticias.id where votos.id_Usuario = ?`,
+      `select votos.*,noticias.votosPositivos,noticias.votosNegativos from votos left join noticias on votos.id_Noticia = noticias.id where votos.id_Usuario = ?`,
       [usuario_id]
     );
 

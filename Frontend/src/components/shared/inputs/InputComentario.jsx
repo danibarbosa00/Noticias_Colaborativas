@@ -25,8 +25,6 @@ const InputComentario = ({
     await crearComentarios(id, user, formData);
     onSubmit(comentario);
     setComentario("");
-
-    window.location.reload();
   };
 
   const handleChange = (e) => {
